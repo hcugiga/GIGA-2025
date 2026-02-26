@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동아리짱 등록 시스템</title>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        #status {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 2rem;
+            word-break: keep-all;
+        }
+
+        .google-signin-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 54px;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .google-signin-button:hover {
+            background-color: #f1f3f4;
+            border-color: #d2d4d7;
+        }
+
+        .google-signin-button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        #logoutSection {
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+            display: none;
+        }
+
+        #loggedInUserStatus {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+
+        .logout-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .logout-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>동아리짱 등록</h1>
+        <p id="status">로그인하면 동아리짱 명단에 자동으로 등록됩니다.<br>등록 후 서비스 관리자의 승인을 기다리세요.</p>
+        
+        <button id="regBtn" class="google-signin-button">
+            <img loading="lazy" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
+            <span>Google 계정으로 등록</span>
+        </button>
+
+        <div id="logoutSection">
+            <p id="loggedInUserStatus"></p>
+            <button id="logoutBtn" class="logout-button">로그아웃</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDIqULwW58FRpwOdt77zGrZriRGgMK4KP8",
+            authDomain: "webzine-f99a8.firebaseapp.com",
+            projectId: "webzine-f99a8",
+            storageBucket: "webzine-f99a8.firebasestorage.app",
+            messagingSenderId: "918018259806",
+            appId: "1:918018259806:web:01030fbb0a8a2e20822dcf",
+            measurementId: "G-5MDT9PBF6D"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        const statusDisplay = document.getElementById('status');
+        const regBtn = document.getElementById('regBtn');
+        const logoutSection = document.getElementById('logoutSection');
+        const loggedInUserStatus = document.getElementById('loggedInUserStatus');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        regBtn.onclick = async () => {
+            try {
+                await signInWithPopup(auth, provider);
+            } catch (e) {
+                console.error(e);
+                alert("로그인에 실패했습니다.");
+            }
+        };
+
+        logoutBtn.onclick = async () => {
+            await signOut(auth);
+            location.reload();
+        };
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const userRef = doc(database, "users", user.uid);
+                const userDoc = await getDoc(userRef);
+
+                if (!userDoc.exists()) {
+                    await setDoc(userRef, {
+                        uid: user.uid,
+                        email: user.email,
+                        name: user.displayName || "이름 없음",
+                        isAdmin: false,
+                        manageclub: [],
+                    });
+                    statusDisplay.innerHTML = `<strong>${user.displayName}</strong>님, 등록이 완료되었습니다!<br>이제 관리자가 권한을 승인할 때까지 기다려주세요.`;
+                } else {
+                    statusDisplay.innerHTML = `<strong>${user.displayName}</strong>님은 이미 명단에 있습니다.<br>권한 설정은 Firebase 콘솔에서 진행됩니다.`;
+                }
+
+                loggedInUserStatus.innerText = `접속 계정: ${user.email}`;
+                regBtn.style.display = "none";
+                logoutSection.style.display = "block";
+            } else {
+                regBtn.style.display = "flex";
+                logoutSection.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="image/logo/hculogo.webp" type="image/x-icon">
+    <title>2025 움직임</title>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">-->
+
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+
+    <style>
+        /*@font-face{
+            font-family: "Jua-Regular";
+            src: url("./font/Jua-Regular.ttf") format("truetype");
+        }*/
+        *{
+            /*font-family: 'Jua';*/
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 0;
+            -webkit-user-drag: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            touch-action: none;
+            overflow: hidden;
+        }
+        html{
+            z-index: -2;
+            background-color: #f0f0f0;
+        }
+        a{
+            display: inline-block;
+            text-decoration: none;
+        }
+        #main{
+            display: flex;
+            width: 300vw;
+            height: 100dvh;
+            transition: transform 0.5s ease-in-out;
+        }
+        .frame{
+            width: 50vw;
+            height: 100dvh;
+        }
+        .clublink{
+            display: none;
+        }
+        .longinfo{
+            display: none;
+        }
+        .lock{
+            pointer-events: none !important;
+        }
+
+        #intro{
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+            width: 30vw;
+            height: inherit;
+            background-color: rgba(255,255,255, 0.9);
+            padding: 0 0 0 3vw;
+
+            img{
+                display: block;
+                width: 25vw;
+                height: auto;
+                margin: 0 auto;
+            }
+
+            h1{
+                font-size: 5vw;
+                margin: 0 auto;
+                opacity: 0.85;
+            }
+
+            div{
+                height: 15dvh;
+                margin: 3dvh 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p{
+                    display: inline-block;
+                    font-size: 1vw;
+                }
+            }
+        }
+
+        #handle{
+            width: 4vw;
+            height: inherit;
+            background-color: rgba(255,255,255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: visible;
+
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 4vw;
+                height: 20dvh;
+                transition: transform 0.5s ease;
+                overflow: visible;
+
+                p{
+                    display: inline-block;
+                    font-size: 3vw;
+                    font-weight: bold;
+                    opacity: 0.6;
+                    transition: transform 0.5s ease;
+                    overflow: visible;
+                }
+            }
+        }
+        #pagezeronotice{
+            width: 10vw;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            
+            p{
+                font-size: 2vw;
+                font-weight: bold;
+                display: inline-block;
+                padding: 0 0 0 1vw;
+            }
+        }
+
+        #pageone{
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            position: relative;
+            z-index: 10;
+        }
+
+        #bigclub{
+            height: inherit;
+            width: 50vw;
+            display: flex;
+            padding: 5dvh 0 0 0;
+            align-items: center;
+            justify-content: center;
+
+            #bigclubinner{
+                position: relative;
+                height: 60dvh;
+                width: 30vw;
+                margin: 10dvh 0 0 10dvh;
+                overflow: visible;
+                gap: 0;
+                display: flex;
+                flex-flow: column;
+                justify-content: space-evenly;
+                border: 0.3vw solid black;
+                border-radius: 3vw;
+                background-color: rgba(255,255,255,0.9);
+
+                div{
+                    position: relative;
+                    width: 18vw;
+                    height: 15.5dvh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 auto;
+                    background-color: rgba(220, 220, 220, 0.9); 
+                    border: 0.25vw solid black;
+                    border-radius: 1.5vw;
+                    overflow: visible;
+
+                    .slidebtn1{
+                        display: inline-block;
+                        font-size: 3vw;
+                        font-weight: bold;
+                    }
+                }
+
+                #bigclubnotice{
+                    width: 10vw;
+                    height: 5dvh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 61dvh;
+                    left: 8vw;
+                    flex-shrink: 0;
+                    border: none;
+                    background-color: rgba(0,0,0,0);
+
+                    p{
+                        display: inline-block;
+                        font-size: 2vw;
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            #bigclubsign{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20vw;
+                height: 95dvh;
+                opacity: 0.3;
+                transition: transform 0.5s ease-out, opacity 0.5s ease-in-out;
+                transform: translateY(5dvh);
+
+                p{
+                    font-size: 4vw;
+                }
+            }
+        }
+
+        #smallclub{
+            height: inherit;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 0 0 8dvh 0;
+
+            #smallclubtitle{
+                width: 40vw;
+                height: 20dvh;
+                padding: 5dvh 0 0 0;
+                margin: auto;
+                flex-shrink: 0;
+
+                p{
+                    font-size: 5vw;
+                    font-weight: bold;
+                }
+            }
+
+            .smallclubgrid{
+                display: grid;
+                height: 31vw;
+                padding: 3vw;
+                border-radius: 2vw;
+                grid-template-rows: repeat(2, 10vw);
+                grid-auto-columns: max-content;
+                grid-auto-flow: column;
+                gap: 5vw; 
+                margin: auto;
+                flex-shrink: 0;
+                background-color: rgba(255,255,255, 0.9);
+                border: 0.3vw solid black;
+                
+                div{
+                    width: 10vw;
+                    height: 10vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: rgba(43, 41, 151, 0.3);
+                    border: 0.25vw solid black;
+                    border-radius: 1vw;
+
+                    p{
+                        display: inline-block;
+                        margin: auto;
+                        font-size: 3vw;
+                        font-weight: bold;
+                    }
+                }
+                div img {
+                    width: 6vw;
+                    height: 6vw;
+                    object-fit: cover;
+                    display: none;
+                }
+                div{
+                    transition: border-radius 0.4s ease;
+                }
+                div:hover{
+                border-radius: 50%;
+                }
+                div:hover p{
+                    display: none;
+                }
+                div:hover img {
+                    display: inline-block;
+                }
+                &:nth-child(3) div{
+                    width: 12vw;
+                }
+            }
+
+            #chooseall{
+                position: absolute;
+                bottom: 0.5vw;
+                right: 0.5vw;
+                width: 5vw;
+                height: 3.5vw;
+                background-color: rgba(43, 41, 151, 0.7);
+                border: 0.2vw solid black;
+                border-radius: 0.5vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                p{
+                    display: inline-block;
+                    font-size: 2vw;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        #selectclub{
+            display: flex;
+            flex-flow: column;
+            width: 44vw;
+            height: calc(100dvh - 8vw);
+            margin: 4vw 3vw 1vw 3vw;
+            padding: 5dvh 0;
+            border: 0.3vw solid black;
+            border-radius: 3vw;
+            background-color: rgba(255,255,255, 0.9);
+            gap: 5dvh;
+            align-items: center;
+            overflow-y: auto;
+            scroll-snap-type: y proximity;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+
+            > div{
+                touch-action: pan-y;
+                user-select: none;
+                -webkit-user-drag: none;
+                width: 40vw;
+                height: 16vw;
+                flex-shrink: 0;
+                scroll-snap-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 2vw;
+                border: 0.25vw solid black;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-radius: 2vw;
+
+                div:nth-child(1){
+                    touch-action: pan-y;
+                    img{
+                    display: inline-block;
+                    touch-action: pan-y;
+                    width: 12vw;
+                    height: 12vw;
+                    background-color: rgba(182, 182, 182, 0.8);
+                    border: 0.25vw solid black;
+                    border-radius: 1vw;
+                    }
+                }
+
+                div:nth-child(2){
+                    width: 22vw;
+                    height: 12vw;
+                    border: 0.2vw solid black;
+                    border-radius: 2vw;
+                    touch-action: pan-y;
+
+                    p{
+                        touch-action: pan-y;
+                        justify-content: center;
+                        text-align: center;
+
+                        &:nth-child(1){
+                            display: block;
+                            touch-action: pan-y;
+                            font-size: 3vw;
+                            font-weight: bold;
+                            justify-content: center;
+                            margin: 1vw;
+                        }
+                        &:nth-child(2){
+                            display: inline-block;
+                            touch-action: pan-y;
+                            font-size: 1.5vw;
+                            font-weight: bold;
+                            padding: 0.3vw;
+                            margin: 2dvh 0 2dvh auto;
+                            border-radius: 1vw 0 0 1vw;
+
+                            .regular &{
+                                background-color: rgb(104, 97, 168);
+                            }
+                            .self &{
+                                background-color: rgb(129, 149, 212);
+                            }
+                            .endself &{
+                                background-color: rgb(165, 122, 206);
+                            }
+                        }
+                        &:nth-child(3){
+                            display: inline-block;
+                            touch-action: pan-y;
+                            font-size: 1.5vw;
+                            font-weight: bold;
+                            padding: 0.3vw;
+                            margin: 2dvh auto 2dvh 0;
+                            border-radius: 0 1vw 1vw 0;
+
+                            .mat &{
+                                background-color: rgb(71, 52, 148);
+                            }
+                            .sci &{
+                                background-color: rgb(124, 51, 158);
+                            }
+                            .med &{
+                                background-color: rgb(49, 165, 55);
+                            }
+                            .goat &{
+                                background-color: rgb(127, 143, 134);
+                            }
+                            .soc &{
+                                background-color: rgb(153, 109, 59);
+                            }
+                            .mix &{
+                                background-color: rgb(141, 140, 51);
+                            }
+                            .spo &{
+                                background-color: rgb(130, 116, 189);
+                            }
+                            .spe &{
+                                background-color: rgb(124, 206, 156);
+                            }
+                            .vol &{
+                                background-color: rgb(207, 114, 114);
+                            }
+                            .per &{
+                                background-color: rgb(204, 211, 139);
+                            }
+                        }
+                    }
+                }
+            }
+
+            #selectnone{
+                width: 44vw;
+                height: calc(90dvh - 9vw);
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                border: none;
+                background-color: rgba(0,0,0,0);
+
+                p{
+                    display: inline-block;
+                    font-size: 5vw;
+                    font-weight: bold;
+                }
+            }
+        }
+        
+        #scrollnotice{
+            width: 20vw;
+            height: 2vw;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+
+            p{
+                display: inline-block;
+                font-size: 2vw;
+                font-weight: bold;
+            }
+        }
+
+        #gotoclubsite{
+            color: black;
+        }
+        
+        #clubdetail{
+            position: relative;
+            width: 44vw;
+            height: calc(100dvh - 8vw);
+            margin: 0 3vw 0 2vw;
+            gap: 3dvh;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            text-align: center;
+            border: 0.3vw solid black;
+            border-radius: 2vw;
+            background-color: rgba(255,255,255, 0.9);
+            
+            #detailname{
+                height: 16dvh;
+                width: 40vw;
+                flex-shrink: 0;
+                margin: 0 auto 2dvh auto;
+                p{
+                    display: inline-block;
+                    font-size: 5vw;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+
+            #detailcenter{
+                display: flex;
+                width: 40vw;
+                height: 60dvh;
+                padding: 0 0 4dvh 0;
+                flex-shrink: 0;
+                margin : 0 auto;
+
+                #details{
+                    display: flex;
+                    flex-direction: column;
+                    width: 20vw;
+                    height: inherit;
+                    text-align: center;
+                    justify-content: center;
+
+                    #detailimg{
+                        width: 17vw;
+                        height: 17vw;
+                        border: 0.3vw solid black;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        border-radius: 1vw;
+                        margin: auto;
+
+                        img{
+                            display: inline-block;
+                            width: 17vw;
+                            height: 17vw;
+                        }
+                    }
+                    #detailinfo{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        text-align: center;
+                        margin: auto;
+
+                        #detailregorsel{
+                            width: 17vw;
+                            height: 3vw;
+                            margin: auto;
+                            border-top: 0.2vw solid black;
+                            border-right: 0.2vw solid black;
+                            border-bottom: 0.1vw solid black;
+                            border-left: 0.2vw solid black;
+                            border-radius: 1vw 1vw 0 0;
+
+                            > p{
+                                font-size: 2vw;
+                                font-weight: bold;
+                                color: black;
+                            }
+                        }     
+
+                        #detailshortinfo{
+                            width: 17vw;
+                            height: 3vw;
+                            margin: auto;
+                            border-top: 0.1vw solid black;
+                            border-right: 0.2vw solid black;
+                            border-bottom: 0.2vw solid black;
+                            border-left: 0.2vw solid black;
+                            border-radius: 0 0 1vw 1vw;
+                            > p{
+                                font-size: 2vw;
+                                font-weight: bold;
+                                color: black;
+                            }
+                        }
+                    }
+                }
+
+                #detaillonginfo{
+                    flex-shrink: 0;
+                    display: flex;
+                    width: 20vw;
+                    height: 60dvh;
+                    border: 0.25vw solid black;
+                    border-radius: 2vw;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    text-align: center;
+                    justify-content: center;
+                    margin: auto;
+                    padding: 3dvh 0.5vw 3dvh 0.5vw;
+                    overflow-y: auto;
+
+                    p{
+                        display: inline-block;
+                        width: 20vw;
+                        padding: 0.5vw;
+                        font-size: 1.8vw;
+                        word-break: keep-all;
+                        color: black;
+                        touch-action: pan-y;
+                        overflow-y: auto;
+                        scrollbar-width: none;
+                        background-color: rgba(245,245,245, 0.7);
+                        a{
+                            font-size: 1vw;
+                        }
+                    }
+                }
+            } 
+        }
+
+        #detailclick{
+            display: inline-block;
+            width: 80%;
+            height: 4vw;
+            margin: 0.5vw auto;
+            font-size: 2vw;
+            font-weight: bold;
+            color: black;
+        }
+
+        #gotoqna{
+            width: 50vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.65vw auto;
+            padding: 0 0 0 30vw;
+            
+            p{
+                display: inline-block;
+                width: 8vw;
+                height: 2.7vw;
+                border: 0.2vw solid black;
+                border-radius: 0.5vw;
+                font-size: 1.5vw;
+                font-weight: bold;
+                background-color: rgba(43, 41, 151, 0.3);
+            }
+        }
+
+        #pagezero{
+            width: 50vw;
+            height: 100dvh;
+            background-color: rgba(255,255,255,0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            position: fixed;
+            top: 0;
+            left: -50vw;
+            transition: transform 0.5s ease-in-out;
+
+            #zeroframe{
+                width: 40vw;
+                height: 40vw;
+                border: 0.3vw solid black;
+                border-radius: 1vw;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                margin: 1vw;
+                padding: 2vw 0 1vw 0;
+
+                .zeroelement{
+                    width: 36vw;
+                    height: 11vw;
+                    border: 0.25vw solid black;
+                    border-radius: 1.5vw;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    margin: 2vw;
+
+                    .indicator{
+                        width: 24vw;
+                        height: 7vw;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        p{
+                            display: inline-block;
+                            font-size: 2vw;
+                            font-weight: bold;
+                        }
+                    }
+
+                    a > div{
+                        width: 7vw;
+                        height: 7vw;
+                        background-color: rgba(235, 235, 235, 0.8);
+                        border-radius: 1vw;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        p{
+                            display: inline-block;
+                            font-size: 2.5vw;
+                            font-weight: bold;
+                            color: black !important;
+                        }
+                    }
+                }
+
+                #studentsnotice{
+                    width: 36vw;
+                    height: 12vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: -1vw;
+
+                    p{
+                        display: inline-block;
+                        font-size: 1.5vw;
+                        font-weight: bold;
+                        color: rgb(126, 23, 23);
+                    }
+                }
+            }
+        }
+
+        #back{
+            width: 5vw;
+            height: 3.5vw;
+            border: 0.2vw solid black;
+            border-radius: 0.5vw;
+            justify-content: center;
+            text-align: center;
+            background-color: rgba(43, 41, 151, 0.3);
+            position: fixed;
+            top: 0.5vw;
+            left: 0.5vw;
+            z-index: 999;
+            display: none;
+
+            p{
+                font-size: 2vw;
+                font-weight: bold;
+            }
+        }
+
+        .btnclicked{
+            background-color: rgba(43, 41, 151, 0.8) !important;
+        }
+
+        #centerstage{
+            display: flex;
+            flex-direction: column;
+            width: 44vw;
+            height: calc(100dvh - 8vw);
+            border: 0.3vw solid black;
+            border-radius: 2vw;
+            margin: 0 3vw 2vw 3vw;
+            box-sizing: border-box;
+            background-color: rgba(255,255,255, 0.9);
+        }
+        #apply{
+            div{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0.65vw auto;
+                width: 50vw;
+                padding: 0 0 0 30vw;
+                p{
+                    font-size: 1.5vw;
+                    border: 0.2vw solid black;
+                    border-radius: 0.5vw;
+                    height: 2.7vw;
+                    font-weight: bold;
+                    background-color: rgba(43, 41, 151, 0.3);
+                }
+            }
+        }
+        #top-box{
+            display: flex;
+            height: 10dvh;
+            #auth-boxleft{
+                flex-shrink: 0; 
+                margin: 3dvh 0;
+                height: 4dvh;
+                width: 10vw;
+                justify-content: right;
+
+                #authBtn{
+                    border: 0.1vw solid black;
+                    border-radius: 0.5vw;
+                    text-align: center;
+                    height: 4dvh;
+                    width: auto;
+                    font-weight: bold;
+                    font-size: 2dvh;
+                    margin: 0 auto;
+                    background-color: rgba(43, 41, 151, 0.3);
+                }
+            }
+            #QnAclubname{
+                display: flex;
+                width: 24vw;
+                height: 10dvh;
+                align-items: center;
+                justify-content: center;
+                p{
+                    font-size: 2.5vw;
+                    font-weight: bold;
+                    margin: 0;
+                }
+            }
+            #auth-boxright{
+                height: 3dvh;
+                width: 10vw;
+            }
+        }
+
+        #QnAList{
+            height: calc(75dvh - 7.6vw);
+            width: 30vw;
+            margin: 0 auto;
+            border: 0.15vw solid black;
+            border-radius: 1vw;
+            overflow-y: auto;   
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        #QnAList::-webkit-scrollbar{
+            display: none;
+        }
+        
+        .QnA-Item{
+            width: 28vw;
+            margin: 1dvh 1vw;
+            border: 0.1vw solid black;
+            background-color: rgb(238, 238, 238);
+            border-radius: 0.5vw;
+        }
+        .Question{
+            font-weight: bold;
+            font-size: 1vw;
+            margin: 0.2dvh 1vw;
+        }
+        .Answer{
+            font-size: 1vw;
+            margin: 0.3dvh 1.1vw;
+            span{
+                font-size: 1vw;
+            }
+        }
+
+        .form-box{
+            padding: 1dvh 0 ;
+            display: flex;
+            font-weight: bold;
+        }
+        #QuestionInput{
+            display: flex;
+            width: 25vw;
+            height: 5dvh;
+            font-size: 1vw;
+            text-align: center;
+            padding: 1dvh 1vw;
+            overflow-y: auto;
+            margin: auto 0 auto auto;
+            border-top: 0.1vw solid black;
+            border-right: 0.05vw solid black;
+            border-bottom: 0.1vw solid black;
+            border-left: 0.1vw solid black;
+            border-radius: 0.8vw 0 0 0.8vw;
+            box-sizing: border-box;
+            resize: none;
+        }
+        #QuestionInput::scrollbar{
+            display: none;
+        }
+        .Question-btn{
+            width: 5vw;
+            height: 5dvh;
+            font-size: 1vw;
+            padding: 0 auto;
+            margin: auto auto auto 0;
+            border-top: 0.1vw solid black;
+            border-right: 0.1vw solid black;
+            border-bottom: 0.1vw solid black;
+            border-left: 0.05vw solid black;
+            border-radius: 0 0.8vw 0.8vw 0;
+            box-sizing: border-box;
+        }
+
+        .Admin-box{
+            display: flex;
+            margin: 0.1dvh 1vw 0.3dvh 1vw;
+            height: 5dvh;
+        }
+        .AnswerInput{
+            width: 20vw;
+            height: 5dvh;
+            padding: 2dvh 1vw;
+            font-size: 1vw;
+            padding: 1dvh 1vw;
+            margin: 0;
+            overflow-y: auto;
+            border-top: 0.1vw solid black;
+            border-right: 0.05vw solid black;
+            border-bottom: 0.1vw solid black;
+            border-left: 0.1vw solid black;
+            border-radius: 0.8vw 0 0 0.8vw;
+            box-sizing: border-box;
+            resize: none;
+        }
+        .Answer-Btn{
+            width: 5vw;
+            height: 5dvh;
+            padding: auto;
+            font-size: 1vw;
+            margin: 0;
+            border-top: 0.1vw solid black;
+            border-right: 0.05vw solid black;
+            border-bottom: 0.1vw solid black;
+            border-left: 0.05vw solid black;
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+
+        .Delete-Btn{
+            background-color: rgb(256, 0, 0);
+            width: 5vw;
+            height: 5dvh;
+            font-size: 1vw;
+            border-top: 0.1vw solid black;
+            border-right: 0.1vw solid black;
+            border-bottom: 0.1vw solid black;
+            border-left: 0.05vw solid black;
+            border-radius: 0 0.8vw 0.8vw 0;
+            box-sizing: border-box;
+        }
+
+        #mention-box{
+            display: flex;
+            flex-direction: column;
+            height: calc(7dvh - 0.2vw);
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 0 1dvh 0;
+            justify-content: flex-end;
+            p{
+                font-size: 1vw;
+                color: black;
+            }
+        }
+
+        #chung{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        #notionscreenrotate{
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100dvh;
+            background-color: white;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+
+            p{
+                display: inline-block;
+                font-size: 5vw;
+                font-weight: bolder;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+
+<body>
+    <div id="main">
+        <div class="frame" id="pageone"><div id="intro">
+            <img src="image/logo/hculogo.webp" alt="chungunlogo">
+            <h1>2025 움직임</h1>
+            <div><p>ⓒ Copyright 2026. GIGA. All rights reserved.
+                <br>Contact: hcugiga@gmail.com</p></div>
+        </div><div id="handle"><div>
+            <p>〉</p>
+        </div></div>
+        <div id="pagezeronotice">
+            <p>▶ 드래그</p>
+        </div>
+    </div>
+        <div class="frame"><div id="bigclub"><div id="bigclubinner">
+            <div><p id="reg" class="slidebtn1">정규 동아리</p></div>
+            <div><p id="sel" class="slidebtn1">자율 동아리</p></div>
+            <div id="bigclubnotice"><p>▲ 선택</p></div>
+        </div>
+        <div id="bigclubsign">
+            <p>▶</p>
+        </div>
+        </div></div>
+        <div class="frame"><div id="smallclub">
+            <div id="smallclubtitle"><p>분야 선택</p></div>
+            <div id="regclub" class="smallclubgrid">
+                <div class="reg" id="mat">
+                    <p>수학</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/1830/1830939.png" alt="mat"></div>
+                <div class="reg" id="sci">
+                    <p>과학</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/4298/4298236.png" alt="mat"></div>
+                <div class="reg" id="med">
+                    <p>의학</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/1694/1694868.png" alt="mat"></div>
+                <div class="reg" id="goat">
+                    <p>공학</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/1424/1424250.png" alt="mat"></div>
+                <div class="reg" id="soc">
+                    <p>사회</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/992/992307.png" alt="mat"></div>
+                <div class="reg" id="mix">
+                    <p>융합</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/128/17394/17394465.png" alt="mat"></div>
+            </div><div id="selclub" class="smallclubgrid">
+                <div class="sel" id="spo">
+                    <p>스포츠</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/128/649/649420.png" alt="mat"></div>
+                <div class="sel" id="spe">
+                    <p>특별활동</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/128/16212/16212984.png" alt="mat"></div>
+                <div class="sel" id="vol">
+                    <p>봉사</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/829/829141.png" alt="mat"></div>
+                <div class="sel" id="per">
+                    <p>공연</p>
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/128/4472/4472616.png" alt="mat"></div>
+            </div>
+        <div id="chooseall"><p>전체</p></div>
+        </div></div>
+        <div class="frame"><div id="selectclub">
+            <div id="selectnone"><p>분야를 선택하세요</p></div>
+            <div class="regular mat" id="lucid">
+                <div><img loading="lazy" src="" alt="LUCID"></div>
+                <div><p>LUCID</p><p>정규</p><p>수학</p></div>
+                <a href="clubsite/lucid.html" class="clublink"></a>
+                <p class="longinfo">짱 홍주훤</p>
+                <a href="clubsite/lucid.html" class="applylink"></a>
+            </div>
+            <div class="regular mat" id="dm">
+                <div><img loading="lazy" src="" alt="DM"></div>
+                <div><p>DM</p><p>정규</p><p>수학</p></div>
+                <a href="clubsite/dm.html" class="clublink"></a>
+                <p class="longinfo">짱 김준서</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular mat" id="dnt">
+                <div><img loading="lazy" src="image/guitar/images.jpg" alt="DNT"></div>
+                <div><p>DNT</p><p>정규</p><p>수학</p></div>
+                <a href="clubsite/dnt.html" class="clublink"></a>
+                <p class="longinfo">다양한 활동을 통해 학교 생활을 재미있고 유익하게! Welcome to the DNT!</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="genius">
+                <div><img loading="lazy" src="" alt="GeNiUS"></div>
+                <div><p>GeNiUS</p><p>정규</p><p>화학</p></div>
+                <a href="clubsite/genius.html" class="clublink"></a>
+                <p class="longinfo">교내 최고의 화학<br>실험 동아리</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="sin">
+                <div><img loading="lazy" src="" alt="SIN"></div>
+                <div><p>SIN</p><p>정규</p><p>융합과학</p></div>
+                <a href="clubsite/sin.html" class="clublink"></a>
+                <p class="longinfo">짱 이주연</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="cube">
+                <div><img loading="lazy" src="image/logo/cubelogo.jpg" alt="CUBE"></div>
+                <div><p>CUBE</p><p>정규</p><p>생명과학</p></div>
+                <a href="clubsite/cube.html" class="clublink"></a>
+                <p class="longinfo">"ALL ABOUT BIOLOGY, ALL ABOUT THE WOLRD." 다양한 생명과학 관련 활동을 진행하는 근본 생명과학 동아리 CUBE입니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="animal">
+                <div><img loading="lazy" src="image/logo/animal.png" alt="동물의숲"></div>
+                <div><p>동물의숲</p><p>정규</p><p>생명과학</p></div>
+                <a href="clubsite/animal.html" class="clublink"></a>
+                <p class="longinfo">24기 여러분의 최고의 선택! 생명과학과 수의학을 기반으로 한 다양한 실험 활동을 진행하며, 실천적인 프로젝트나 여러 학문을 녹여낼 수 있는 심화 탐구까지 확장해 나가는 동아리입니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="synabro">
+                <div><img loading="lazy" src="image/logo/synabrologo.png" alt="시나브로"></div>
+                <div><p>시나브로</p><p>정규</p><p>화학 생명</p></div>
+                <a href="clubsite/synabro.html" class="clublink"></a>
+                <p class="longinfo">시나브로는 이름처럼 ‘모르는 사이에 천천히, 조금씩’ 성장하는 생명·화학 융합 동아리입니다. 다양한 실험과 탐구 활동을 통해 교과서 속 개념을 직접 경험하고, 서로의 생각을 나누며 과학적 사고력을 키워 나가고 있습니다. 과학에 대한 열정과 호기심만 있다면 누구나 즐겁게 참여할 수 있으며 선배, 친구들과의 협력을 통해 의미 있는 경험과 소중한 추억을 쌓을 수 있습니다. 또한 꾸준한 활동을 통해 자신만의 탐구 역량을 발전시키고 진로를 구체화할 수 있는 기회도 얻을 수 있습니다. 시나브로에서 다양한 활동을 경험하며 천천히, 그리고 꾸준하게 성장하는 시간을 함께해봅시다!</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="aim">
+                <div><img loading="lazy" src="image/logo/aimlogo.webp" alt="AIM"></div>
+                <div><p>AIM</p><p>정규</p><p>화학</p></div>
+                <a href="clubsite/aim.html" class="clublink"></a>
+                <p class="longinfo">"작은 원자, 큰 열정!" 빠르게 성장하여 교내 최대 규모로 자리 잡은 화학 기반 융합 과학 동아리로, 실험과 심화 탐구를 통해 폭넓은 과학적 경험을 제공합니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="cells">
+                <div><img loading="lazy" src="" alt="CELLS"></div>
+                <div><p>CELLS</p><p>정규</p><p>융합과학</p></div>
+                <a href="clubsite/cells.html" class="clublink"></a>
+                <p class="longinfo">짱 손동완</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular sci" id="synapse">
+                <div><img loading="lazy" src="image/logo/synapselogo.png" alt="SYNAPSE"></div>
+                <div><p>SYNAPSE</p><p>정규</p><p>융합과학</p></div>
+                <a href="clubsite/synapse.html" class="clublink"></a>
+                <p class="longinfo">시냅스는 의료계열, 공학계열 등 이과계열이라면 모두 커버 가능한 몇없는 융합과학탐구동아리로 한 분야에 국한되지 않는 심화탐구를 진행해. 과학에 흥미가 있는 이과생이라면 어서와!</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular med" id="meme">
+                <div><img loading="lazy" src="" alt="MEME"></div>
+                <div><p>MEME</p><p>정규</p><p>의학</p></div>
+                <a href="clubsite/meme.html" class="clublink"></a>
+                <p class="longinfo">짱 강준희</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular med" id="it">
+                <div><img loading="lazy" src="image/logo/itlogo.png" alt="it"></div>
+                <div><p>it</p><p>정규</p><p>의학</p></div>
+                <a href="clubsite/it.html" class="clublink"></a>
+                <p class="longinfo">당신이 원하는 교내 최고의 의학 동아리</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular med" id="ebs">
+                <div><img loading="lazy" src="" alt="EBS"></div>
+                <div><p>EBS</p><p>정규</p><p>의학</p></div>
+                <a href="clubsite/ebs.html" class="clublink"></a>
+                <p class="longinfo">짱 신현진</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular med" id="gang">
+                <div><img loading="lazy" src="" alt="강약중강약"></div>
+                <div><p>강약중강약</p><p>정규</p><p>약학</p></div>
+                <a href="clubsite/gang.html" class="clublink"></a>
+                <p class="longinfo">짱 강예원</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular goat" id="gigathegoat">
+                <div><img loading="lazy" src="image/logo/gigalogo.png" alt="GIGA"></div>
+                <div><p>GIGA</p><p>정규</p><p>프로그래밍</p></div>
+                <a href="clubsite/gigathegoat.html" class="clublink"></a>
+                <p class="longinfo">교내 유일 프로그래밍 전문 동아리</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular goat" id="stem">
+                <div><img loading="lazy" src="image/logo/stemlogo.png" alt="STEM"></div>
+                <div><p>STEM</p><p>정규</p><p>이공계</p></div>
+                <a href="clubsite/stem.html" class="clublink"></a>
+                <p class="longinfo">이공계 최고 동아리</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular goat" id="samdi">
+                <div><img loading="lazy" src="image/logo/samdilogo.webp" alt="SAMDI"></div>
+                <div><p>SAMDI</p><p>정규</p><p>융합공학</p></div>
+                <a href="clubsite/samdi.html" class="clublink"></a>
+                <p class="longinfo">짱 조석현</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular soc" id="interpol">
+                <div><img loading="lazy" src="image/logo/interpollogo.png" alt="INTERPOL"></div>
+                <div><p>INTERPOL</p><p>정규</p><p>정치외교</p></div>
+                <a href="clubsite/interpol.html" class="clublink"></a>
+                <p class="longinfo">짱 임윤지</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular mix" id="rapport">
+                <div><img loading="lazy" src="image/logo/rapportlogo.png" alt="라포르"></div>
+                <div><p>라포르</p><p>정규</p><p>심리학</p></div>
+                <a href="clubsite/rapport.html" class="clublink"></a>
+                <p class="longinfo">심리학과 다양한 학문을 융합하여 탐구하고 대규모 심리 실험을 진행하는 인간에 의한, 인간을 위한 동아리입니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="regular mix" id="liberte">
+                <div><img loading="lazy" src="image/logo/libertelogo.jpg" alt="Liberte"></div>
+                <div><p>Liberte</p><p>정규</p><p>자율탐구</p></div>
+                <a href="clubsite/liberte.html" class="clublink"></a>
+                <p class="longinfo">교내 최고의 자율탐구 동아리 리베르트</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spo" id="ils">
+                <div><img loading="lazy" src="" alt="ILS"></div>
+                <div><p>ILS</p><p>주말자율</p><p>축구</p></div>
+                <a href="clubsite/ils.html" class="clublink"></a>
+                <p class="longinfo">짱 정태우</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self spo" id="matchpoint">
+                <div><img loading="lazy" src="" alt="매치포인트"></div>
+                <div><p>매치포인트</p><p>주중자율</p><p>배드민턴</p></div>
+                <a href="clubsite/matchpoint.html" class="clublink"></a>
+                <p class="longinfo">짱 정다민</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spo" id="cbp">
+                <div><img loading="lazy" src="" alt="CBP"></div>
+                <div><p>CBP</p><p>주말자율</p><p>농구</p></div>
+                <a href="clubsite/cbp.html" class="clublink"></a>
+                <p class="longinfo">짱 윤지호</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spo" id="deuce">
+                <div><img loading="lazy" src="" alt="DEUCE"></div>
+                <div><p>DEUCE</p><p>주말자율</p><p>탁구</p></div>
+                <a href="clubsite/deuce.html" class="clublink"></a>
+                <p class="longinfo">짱 윤우원</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spe" id="sky">
+                <div><img loading="lazy" src="image/logo/skylogo.jpg" alt="하늘바라기"></div>
+                <div><p>하늘바라기</p><p>주말자율</p><p>천체관측</p></div>
+                <a href="clubsite/sky.html" class="clublink"></a>
+                <p class="longinfo">하늘바라기는 교내 유일 천문 동아리입니다. 🌟🌟 매주 주말 옥상에 올라가 망원경을 이용하여 밤하늘의 수많은 천체와 달을 관측하고 천문, 우주 분야에 대해 이야기를 나누는 동아리입니다. 밤하늘의 낭만을 즐기고 싶으신 분들은 하늘바라기로 오세요.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self spe" id="arisol">
+                <div><img loading="lazy" src="image/logo/arisollogo.png" alt="아리솔"></div>
+                <div><p>아리솔</p><p>주중자율</p><p>도서관</p></div>
+                <a href="clubsite/arisol.html" class="clublink"></a>
+                <p class="longinfo">교내 유일 도서관 동아리로서, 도서 서고를 정리하고 대출 및 반납을 담당합니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spe" id="dixit">
+                <div><img loading="lazy" src="image/logo/dixitlogo.webp" alt="DIXIT"></div>
+                <div><p>DIXIT</p><p>주말자율</p><p>언어</p></div>
+                <a href="clubsite/dixit.html" class="clublink"></a>
+                <p class="longinfo">여러 언어에 대해 탐구하고 언어 과목 세특 제작에 도움을 주는 광기에 찬 선배들이 기다리는 동아리입니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spe" id="coex">
+                <div><img loading="lazy" src="" alt="COEX"></div>
+                <div><p>COEX</p><p>주말자율</p><p>환경동물</p></div>
+                <a href="clubsite/coex.html" class="clublink"></a>
+                <p class="longinfo">짱 김태연</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self spe" id="hbs">
+                <div><img loading="lazy" src="image/logo/hbslogo.jpg" alt="HBS"></div>
+                <div><p>HBS</p><p>주중자율</p><p>방송부</p></div>
+                <a href="clubsite/hbs.html" class="clublink"></a>
+                <p class="longinfo">현대청운고 공식 방송부, HBS에서 알려드립니다</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself spe" id="stalemate">
+                <div><img loading="lazy" src="image/logo/stalematelogo.jpg" alt="STALEMATE"></div>
+                <div><p>STALEMATE</p><p>주말자율</p><p>체스,큐브</p></div>
+                <a href="clubsite/stalemate.html" class="clublink"></a>
+                <p class="longinfo">짱 장조안</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self spe" id="ged">
+                <div><img loading="lazy" src="image/logo/gedlogo.jpg" alt="글애돝"></div>
+                <div><p>글애돝</p><p>주중자율</p><p>문예편집</p></div>
+                <a href="clubsite/ged.html" class="clublink"></a>
+                <p class="longinfo">”우리가 쓰는 글은 항상 빛이 난다“ 빛바랜 추억을 빛나는 글로 담아내는 우리들의 이야기</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self spe" id="hcutube">
+                <div><img loading="lazy" src="" alt="HCUtube"></div>
+                <div><p>HCUtube</p><p>주중자율</p><p>영상제작</p></div>
+                <a href="clubsite/hcutube.html" class="clublink"></a>
+                <p class="longinfo">짱 천재우</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self spe" id="cet">
+                <div><img loading="lazy" src="" alt="CET"></div>
+                <div><p>CET</p><p>주중자율</p><p>영자신문</p></div>
+                <a href="clubsite/cet.html" class="clublink"></a>
+                <p class="longinfo">짱 강예원</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <!--<div class="endself spe" id="focus">
+                <div><img loading="lazy" src="" alt="FOCUS"></div>
+                <div><p>FOCUS</p><p>주말자율</p><p>영상제작</p></div>
+                <a href="clubsite/focus.html" class="clublink"></a>
+                <p class="longinfo">짱 최지윤</p>   
+                <a href="" class="applylink"></a>
+            </div>-->
+            <!--<div class="self spe" id="palette">
+                <div><img loading="lazy" src="" alt="Palette"></div>
+                <div><p>Palette</p><p>주중자율</p><p>미술</p></div>
+                <a href="clubsite/palette.html" class="clublink"></a>
+                <p class="longinfo">짱 박재경</p>
+                <a href="" class="applylink"></a>
+            </div>-->
+            <div class="endself vol" id="rcy">
+                <div><img loading="lazy" src="" alt="RCY"></div>
+                <div><p>RCY</p><p>주말자율</p><p>봉사</p></div>
+                <a href="clubsite/rcy.html" class="clublink"></a>
+                <p class="longinfo">짱 임지우</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="endself vol" id="bluecross">
+                <div><img loading="lazy" src="" alt="BLUECROSS"></div>
+                <div><p>BLUECROSS</p><p>주말자율</p><p>의료봉사</p></div>
+                <a href="clubsite/bluecross.html" class="clublink"></a>
+                <p class="longinfo">짱 심성민</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self per" id="dell">
+                <div><img loading="lazy" src="image/logo/delllogo.png" alt="DELL"></div>
+                <div><p>DELL</p><p>주중자율</p><p>밴드</p></div>
+                <a href="clubsite/dell.html" class="clublink"></a>
+                <p class="longinfo">밴드붐은 왔다. 교내 최고 공연동아리 DELL</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self per" id="lod">
+                <div><img loading="lazy" src="image/logo/lodlogo.jpg" alt="LOD"></div>
+                <div><p>LOD</p><p>주중자율</p><p>댄스</p></div>
+                <a href="clubsite/lod.html" class="clublink"></a>
+                <p class="longinfo">현대청운고 유일무이 댄스동아리</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self per" id="showgun">
+                <div><img loading="lazy" src="image/logo/showgunlogo.png" alt="쇼군"></div>
+                <div><p>쇼군</p><p>주중자율</p><p>랩,힙합</p></div>
+                <a href="clubsite/showgun.html" class="clublink"></a>
+                <p class="longinfo">교내 최고의<br>힙합 동아리</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self per" id="solmae">
+                <div><img loading="lazy" src="" alt="솔매"></div>
+                <div><p>솔매</p><p>주중자율</p><p>난타</p></div>
+                <a href="clubsite/solmae.html" class="clublink"></a>
+                <p class="longinfo">짱 김주하</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self per" id="symphony">
+                <div><img loading="lazy" src="image/logo/symphonylogo.png" alt="심포니"></div>
+                <div><p>심포니</p><p>주중자율</p><p>오케스트라</p></div>
+                <a href="clubsite/symphony.html" class="clublink"></a>
+                <p class="longinfo">짱 황지인</p>
+                <a href="" class="applylink"></a>
+            </div>
+            <div class="self per" id="rhapsody">
+                <div><img loading="lazy" src="image/logo/rhapsodylogo.jpg" alt="Rhapsody"></div>  
+                <div><p>Rhapsody</p><p>주중자율</p><p>보컬</p></div>
+                <a href="clubsite/rhapsody.html" class="clublink"></a>
+                <p class="longinfo">유서 깊은 교내 유일 보컬 동아리로, 노래를 부르고 공연에 참여합니다.</p>
+                <a href="" class="applylink"></a>
+            </div>
+        </div>
+        <div id="scrollnotice"><p>▼ 드래그</p></div>
+    </div>
+        <div class="frame">
+        <div id="gotoqna"><p> ▶ 질문하기 </p></div>
+            <div id="clubdetail"><a href="" id="gotoclubsite" target="_blank">
+            <div id="detailname"><p>name</p></div>
+            <div id="detailcenter">
+                <div id="details">
+                    <div id="detailimg"><img loading="lazy" src=""></div>
+                    <div id="detailinfo">
+                        <div id="detailregorsel"><p>regularorself</p></div>
+                        <div id="detailshortinfo"><p>shortinfo</p></div>
+                    </div>
+                </div>
+                <div id="detaillonginfo"><p>loooooooonginfoanddetails</p></div>
+            </div></a></div>
+            <p id="detailclick">▲ 클릭</p>
+    </div>
+
+        <div class="frame">
+            <a href="" id="apply" target="_blank" style="color: black;"><div>
+                <p> 동아리 지원하기 </p>
+            </div></a>
+            <div id="centerstage">
+                <div id="top-box">
+                    <div id="auth-boxleft">
+                    <button id="authBtn" class="auth-btn">동아리짱 로그인</button>
+                    </div>
+                    <div id="QnAclubname">
+                        <p class="QnAclubid"></p>
+                    </div>
+                    <div id="auth-boxright"></div>
+                </div>
+                <div id="QnAList"></div>
+                <div class="form-box">
+                    <textarea id="QuestionInput" placeholder="질문을 입력해주세요"></textarea>
+                    <button id="QuestionBtn" class="Question-btn">질문 등록</button>
+                </div>
+                <div id="mention-box">
+                    <p id="mention-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="pagezero"><div id="zeroframe">
+        <div class="zeroelement">
+            <div class="indicator"><p>이전 년도 움직임 보러가기</p></div>
+            <a href="https://umjigim.vercel.app" target="_blank"><div><p>▶</p></div></a>
+        </div>
+        <div class="zeroelement">
+            <div class="indicator"><p>학생회 소개 웹진 보러가기</p></div>
+            <a href="clubsite/students.html" target="_blank"><div><p>▶</p></div></a>
+        </div>
+        <div id="studentsnotice"><p>※ 학생회 임원은 2학기에 모집할 예정이며,<br> 지금은 지원할 수 없습니다.</p></div>
+    </div></div>
+    <div id="back">
+        <p>뒤로</p>
+    </div>
+    <img id="chung" src="image/guitar/backgroundimage.webp" alt="현대청운고">
+    <div id="notionscreenrotate"><p>기기를 가로로 돌려주세요!</p></div>
+
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+
+    <script>
+        let pagenumber = 1;
+        let bigclubnumber = 1;
+        let smallclubnumber = 0;
+        let touchX = 0;
+        let touchId = null;
+        let regorselnumber = 0;
+        let typeofclub = 0;
+        const myMain = document.getElementById('main');
+        const bigreg = document.getElementById('reg');
+        const bigsel = document.getElementById('sel');
+        const bigclubSign = document.getElementById('bigclubsign');
+        const slidebtns1 = document.querySelectorAll('.slidebtn1');
+        const slidebtns2 = document.querySelectorAll('.slidebtn2');
+        const smallclubreg = document.getElementById('regclub');
+        const smallclubsel = document.getElementById('selclub');
+        const smallregs = document.querySelectorAll('.reg');
+        const smallsels = document.querySelectorAll('.sel');
+        const btnmat = document.getElementById('mat');
+        const btnsci = document.getElementById('sci');
+        const btnmed = document.getElementById('med');
+        const btngoat = document.getElementById('goat');
+        const btnsoc = document.getElementById('soc');
+        const btnmix = document.getElementById('mix');
+        const btnspo = document.getElementById('spo');
+        const btnspe = document.getElementById('spe');
+        const btnvol = document.getElementById('vol');
+        const btnper = document.getElementById('per');
+        const chooseAll = document.getElementById('chooseall');
+        const selectNone = document.getElementById('selectnone');
+        const mats = document.querySelectorAll('.mat');
+        const scis = document.querySelectorAll('.sci');
+        const meds = document.querySelectorAll('.med');
+        const goats = document.querySelectorAll('.goat');
+        const socs = document.querySelectorAll('.soc');
+        const mixs = document.querySelectorAll('.mix');
+        const spos = document.querySelectorAll('.spo');
+        const spes = document.querySelectorAll('.spe');
+        const vols = document.querySelectorAll('.vol');
+        const pers = document.querySelectorAll('.per');
+        const backbtn = document.getElementById('back');
+        const gotoDetails = document.querySelectorAll('#selectclub > *');
+        const detailnameContent = document.querySelector('#detailname > p');
+        const detailimgContent = document.querySelector('#detailimg > img');
+        const detailregorselContent = document.querySelector('#detailregorsel > p');
+        const detailshortinfoContent = document.querySelector('#detailshortinfo > p');
+        const detaillonginfoContent = document.querySelector('#detaillonginfo > p');
+        const gotoClubsite = document.querySelector('#gotoclubsite');
+        const yoon = document.querySelector('woowon');
+        const gotoQna = document.getElementById('gotoqna');
+        const pageZero = document.getElementById('pagezero');
+        const handleZero = document.getElementById('handle');
+        const pageOne = document.getElementById('pageone');
+        const screenCover = document.getElementById('notionscreenrotate');
+        const applyLink = document.querySelector('#apply');
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+
+        function detScreenSize(){
+            if(window.innerHeight * 1.5 > window.innerWidth) screenCover.style.display = "flex";
+            else screenCover.style.display = "none";
+        }
+
+        function lockInteraction(){
+            document.querySelector('*').classList.add('lock');
+
+            setTimeout(() => {
+                document.querySelector('*').classList.remove('lock');
+            }, 500);
+        }
+
+        function slideRight(){
+            if(pagenumber < 5){
+                pagenumber += 1;
+                myMain.style.transform = `translateX(${(1 - pagenumber) * 50}vw)`;
+                if(pagenumber >= 2) {
+                    backbtn.style.display = "block";
+                    bigclubSign.style.opacity = "1";
+                    pageZero.style.opacity = "0";
+                }
+                if(pagenumber === 1) pageOne.style.transform = "translateX(0)";
+                lockInteraction();
+            }
+        }
+        function slideLeft(){
+            if(pagenumber > 1){
+                pagenumber -= 1;
+                myMain.style.transform = `translateX(${(1 - pagenumber) * 50}vw)`;
+                if(pagenumber <= 1) {
+                    backbtn.style.display = "none";
+                    bigclubSign.style.transform = "translateY(5dvh)";
+                    bigclubSign.style.opacity = "";
+                }
+                lockInteraction();
+            }
+        }
+        function changeSmallclubArr(){
+            smallregs.forEach(el => {
+                el.style.display = "none";
+            });
+            smallsels.forEach(el => {
+                el.style.display = "none";
+            });
+            if(bigclubnumber === 1){
+                smallregs.forEach(el => {
+                    el.style.display = "";
+                });
+            }
+            else{
+                smallsels.forEach(el => {
+                    el.style.display = "";
+                });
+            }
+        }
+        function removeStyleClicked(){
+            smallregs.forEach(el => {
+                el.classList.remove('btnclicked');
+            });
+            smallsels.forEach(el => {
+                el.classList.remove('btnclicked');
+            });
+            smallclubnumber = 0;
+        }
+        function changeClublist(){
+            if(smallclubnumber === 0) selectNone.style.display = "";
+            else selectNone.style.display = "none";
+            if(bigclubnumber === 1){
+                if(smallclubnumber % 2 === 1) mats.forEach(el => {el.style.display = ""});
+                else mats.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 4 >= 2) scis.forEach(el => {el.style.display = ""});
+                else scis.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 8 >= 4) meds.forEach(el => {el.style.display = ""});
+                else meds.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 16 >= 8) goats.forEach(el => {el.style.display = ""});
+                else goats.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 32 >= 16) socs.forEach(el => {el.style.display = ""});
+                else socs.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 64 >= 32) mixs.forEach(el => {el.style.display = ""});
+                else mixs.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber === 63) chooseAll.querySelector('p').innerText = "해제";
+                else chooseAll.querySelector('p').innerText = "전체";
+                spos.forEach(el => {el.style.display = "none"});
+                spes.forEach(el => {el.style.display = "none"});
+                vols.forEach(el => {el.style.display = "none"});
+                pers.forEach(el => {el.style.display = "none"});
+            }
+            else{
+                if(smallclubnumber % 2 === 1) spos.forEach(el => {el.style.display = ""});
+                else spos.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 4 >= 2) spes.forEach(el => {el.style.display = ""});
+                else spes.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 8 >= 4) vols.forEach(el => {el.style.display = ""});
+                else vols.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber % 16 >= 8) pers.forEach(el => {el.style.display = ""});
+                else pers.forEach(el => {el.style.display = "none"});
+                if(smallclubnumber === 15) chooseAll.querySelector('p').innerText = "해제";
+                else chooseAll.querySelector('p').innerText = "전체";
+                mats.forEach(el => {el.style.display = "none"});
+                scis.forEach(el => {el.style.display = "none"});
+                meds.forEach(el => {el.style.display = "none"});
+                goats.forEach(el => {el.style.display = "none"});
+                socs.forEach(el => {el.style.display = "none"});
+                mixs.forEach(el => {el.style.display = "none"});
+            }
+        }
+        changeClublist();
+        detScreenSize();
+
+//--------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------
+
+        document.querySelectorAll('*').forEach(el => {
+            el.setAttribute('tabindex', '-1');
+        });
+        
+        bigreg.addEventListener('click', () => {
+            bigclubnumber = 1;
+            changeSmallclubArr();
+            removeStyleClicked();
+            smallclubreg.style.display = "";
+            smallclubsel.style.display = "none";
+            bigclubSign.style.transform = "translateY(-8dvh)";
+            chooseAll.querySelector('p').innerText = "전체";
+        });
+        bigsel.addEventListener('click', () => {
+            bigclubnumber = 2;
+            changeSmallclubArr();
+            removeStyleClicked();
+            smallclubreg.style.display = "none";
+            smallclubsel.style.display = "";
+            bigclubSign.style.transform = "translateY(18dvh)";
+            chooseAll.querySelector('p').innerText = "전체";
+        });
+        btnmat.addEventListener('click', () => {
+            if(smallclubnumber % 2 === 1){
+                smallclubnumber -= 1;
+                btnmat.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 1;
+                btnmat.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnsci.addEventListener('click', () => {
+            if(smallclubnumber % 4 >= 2){
+                smallclubnumber -= 2;
+                btnsci.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 2;
+                btnsci.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnmed.addEventListener('click', () => {
+            if(smallclubnumber % 8 >= 4){
+                smallclubnumber -= 4;
+                btnmed.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 4;
+                btnmed.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btngoat.addEventListener('click', () => {
+            if(smallclubnumber % 16 >= 8){
+                smallclubnumber -= 8;
+                btngoat.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 8;
+                btngoat.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnsoc.addEventListener('click', () => {
+            if(smallclubnumber % 32 >= 16){
+                smallclubnumber -= 16;
+                btnsoc.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 16;
+                btnsoc.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnmix.addEventListener('click', () => {
+            if(smallclubnumber % 64 >= 32){
+                smallclubnumber -= 32;
+                btnmix.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 32;
+                btnmix.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnspo.addEventListener('click', () => {
+            if(smallclubnumber % 2 === 1){
+                smallclubnumber -= 1;
+                btnspo.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 1;
+                btnspo.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnspe.addEventListener('click', () => {
+            if(smallclubnumber % 4 >= 2){
+                smallclubnumber -= 2;
+                btnspe.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 2;
+                btnspe.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnvol.addEventListener('click', () => {
+            if(smallclubnumber % 8 >= 4){
+                smallclubnumber -= 4;
+                btnvol.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 4;
+                btnvol.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        btnper.addEventListener('click', () => {
+            if(smallclubnumber % 16 >= 8){
+                smallclubnumber -= 8;
+                btnper.classList.remove('btnclicked');
+            }
+            else{
+                smallclubnumber += 8;
+                btnper.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+        chooseAll.addEventListener('click', () => {
+            if(bigclubnumber === 1){
+                if(smallclubnumber === 63){
+                    smallclubnumber = 0;
+                    smallregs.forEach((el) => {
+                        el.classList.remove('btnclicked');
+                    });
+                    changeClublist();
+                    return;
+                }
+                smallclubnumber = 63;
+                btnmat.classList.add('btnclicked');
+                btnsci.classList.add('btnclicked');
+                btnmed.classList.add('btnclicked');
+                btngoat.classList.add('btnclicked');
+                btnsoc.classList.add('btnclicked');
+                btnmix.classList.add('btnclicked');
+            }
+            else{
+                if(smallclubnumber === 15){
+                    smallclubnumber = 0;
+                    smallsels.forEach((el) => {
+                        el.classList.remove('btnclicked');
+                    });
+                    changeClublist();
+                    return;
+                }
+                smallclubnumber = 15;
+                btnspo.classList.add('btnclicked');
+                btnspe.classList.add('btnclicked');
+                btnvol.classList.add('btnclicked');
+                btnper.classList.add('btnclicked');
+            }
+            if(pagenumber === 2) slideRight();
+            changeClublist();
+        });
+
+        gotoQna.addEventListener('click', () => {
+            if(pagenumber === 4) slideRight();
+        });
+
+        slidebtns1.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(pagenumber === 1) slideRight();
+            });
+        });
+        slidebtns2.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(pagenumber === 2) slideRight();
+            });
+        });
+
+        pageZero.addEventListener('click', () => {
+            slideRight();
+            pageZero.style.transform = "translateX(0)";
+            lockInteraction();
+        });
+
+        window.addEventListener('pointerdown', (e) => {
+            if(touchId === null){
+                touchId = e.pointerId;
+                touchX = e.clientX;
+            }
+        });
+        window.addEventListener('pointermove', (e) => {
+            return;
+        });
+        window.addEventListener('pointerup', (e) => {
+            if(e.pointerId !== touchId) return;
+            if(e.clientX - touchX > window.innerWidth / 6){
+                if(pagenumber > 1) slideLeft();
+                else if(pagenumber === 1){
+                    pagenumber = 0;
+                    pageOne.style.transform = "translateX(50vw)";
+                    pageZero.style.transform = "translateX(50vw)";
+                    pageZero.style.opacity = "1";
+                    handleZero.querySelector('p').style.transform = "rotate(180deg) translateX(2vw)";
+                    document.querySelector('#pagezeronotice p').innerText = "◀ 드래그";
+                    lockInteraction();
+                }
+            }
+            else if(touchX - e.clientX > window.innerWidth / 6){
+                if(pagenumber === 0){
+                    slideRight();
+                    pageZero.style.transform = "translateX(0)";
+                    handleZero.querySelector('p').style.transform = "rotate(0)";
+                    document.querySelector('#pagezeronotice p').innerText = "▶ 드래그";
+                    lockInteraction();
+                }
+            }
+            touchId = null;
+        });
+        window.addEventListener('pointercancel', () => {
+            touchId = null;
+        });
+        window.addEventListener('resize', detScreenSize)
+        backbtn.addEventListener('click', () => {
+            if(pagenumber !== 1) slideLeft();
+            lockInteraction();
+        });
+        gotoDetails.forEach(e => {
+            e.addEventListener('click', () => {
+                detailnameContent.innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(1)').innerText;
+                detailimgContent.src = e.querySelector(':scope div:nth-child(1) img').src;
+                detailregorselContent.innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(2)').innerText;
+                detailshortinfoContent.innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(3)').innerText;
+                detaillonginfoContent.innerHTML = e.querySelector('.longinfo').innerHTML;
+                gotoClubsite.href = e.querySelector('.clublink').href;
+                document.querySelector('#detailregorsel').style.backgroundColor = getComputedStyle(e.querySelector(':scope div:nth-child(2) p:nth-child(2)')).backgroundColor;
+                document.querySelector('#detailshortinfo').style.backgroundColor = getComputedStyle(e.querySelector(':scope div:nth-child(2) p:nth-child(3)')).backgroundColor;
+                applyLink.href = e.querySelector('.applylink').href;
+                if(pagenumber === 3) slideRight();
+            });
+        });
+    </script>
+<!----------------------------------------------------------------------------------------------------------------------------->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, getDoc, doc, updateDoc, query, orderBy, onSnapshot, serverTimestamp, where, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyDIqULwW58FRpwOdt77zGrZriRGgMK4KP8",
+            authDomain: "webzine-f99a8.firebaseapp.com",
+            projectId: "webzine-f99a8",
+            storageBucket: "webzine-f99a8.firebasestorage.app",
+            messagingSenderId: "918018259806",
+            appId: "1:918018259806:web:01030fbb0a8a2e20822dcf",
+            measurementId: "G-5MDT9PBF6D"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getFirestore(app);
+        const provider = new GoogleAuthProvider();
+
+        const QnAClubname = document.querySelector('.QnAclubid');    
+
+        let isAdmin = false;
+        let currentcatagory ="";
+        let userManagedClubs = [];
+
+        gotoDetails.forEach(card => {
+            card.addEventListener('click', () => {
+                currentcatagory = card.id;
+
+                const clubTitleElement = card.querySelector('div:nth-child(2) p:nth-child(1)');
+                const clubTitle = clubTitleElement ? clubTitleElement.innerText : currentcatagory;
+                QnAClubname.innerText=`${clubTitle} Q&A`;
+
+                updateUIByPermission();
+;               loadQnA(currentcatagory);
+            });
+        });
+
+        const authBtn = document.getElementById('authBtn');
+        authBtn.onclick = async () => {
+            if(!auth.currentUser){
+                try{
+                    await signInWithPopup(auth, provider);
+                } catch(e){
+                    console.error("로그인 실패:", e);
+                }
+            } else{
+                await signOut(auth);
+                alert("로그아웃되었습니다.")
+                location.reload();
+            }
+        };
+
+        onAuthStateChanged(auth, async (user) =>{
+            if (user) {
+                const userDoc = await getDoc(doc(database, "users", user.uid));
+                if (userDoc.exists()) {
+                    const userData = userDoc.data();
+                    authBtn.innerText = "로그아웃";
+                    isAdmin = userData.isAdmin === true;
+                    userManagedClubs = userData.manageclub || [];
+                } else {
+                    alert("등록되지 않은 동아리짱입니다.");
+                    await signOut(auth);
+                    isAdmin = false;
+                    authBtn.innerText = "동아리짱로그인";
+                }
+            } else{
+                authBtn.innerText="동아리짱로그인";
+                isAdmin = false;
+                userManagedClubs=[];
+            }
+            updateUIByPermission();    
+            loadQnA(currentcatagory);
+        });
+
+        function updateUIByPermission() {
+            const mentionText = document.getElementById('mention-text');
+            const hasPermission = isAdmin && userManagedClubs.includes(currentcatagory)
+            if (hasPermission){
+                mentionText.innerText="질문에 다시 답변할 시 답변 내용을 덮어씁니다.\n각 동아리 짱은 질문에 정성껏 답변해주세요.";
+            } else{
+                mentionText.innerText="청운인으로써 비속어 사용은 자제해주세요.\n질문 후 짱이 답변하면 익명으로 질문과 답변이 함께 보입니다.";
+            }
+        }
+
+        document.getElementById('QuestionBtn').onclick = async() => {
+            const content = document.getElementById('QuestionInput').value;
+            if (!content) return alert("질문을 입력하세요.");
+            
+            try{
+                await addDoc(collection(database, "questions"), {
+                    content: content,
+                    answer: "",
+                    catagory: currentcatagory,
+                    createdAt: serverTimestamp()
+                });
+                alert("질문 등록이 완료되었습니다!");
+                document.getElementById('QuestionInput').value="";
+                } catch (e) {
+                    console.error("질문 등록 오류: ", e);
+                    alert("질문 등록에 실패했습니다. 다시 시도해주세요.");
+            }
+        };
+
+                function loadQnA(selectedcatagory) {
+            if (!selectedcatagory) return;
+            
+            const q = query(
+                collection(database, "questions"), 
+                where("catagory", "==", selectedcatagory),
+                orderBy("createdAt", "asc")
+            );
+
+            onSnapshot(q, (snapshot) => {
+                const QnAList = document.getElementById('QnAList');
+                QnAList.innerHTML=""
+                const hasPermission = isAdmin && userManagedClubs.includes(selectedcatagory);
+
+                snapshot.forEach((queryDoc) => {
+                    const data = queryDoc.data();
+                    const id = queryDoc.id;
+
+                    if (!hasPermission && !data.answer) return;
+
+                    const Item = document.createElement('div');
+                    Item.className = "QnA-Item";
+
+                    let answerText = data.answer ? `A: ${data.answer}` : '<span style="color:#ff6b6b">(답변 대기 중)</span>';
+                    let html = `
+                        <div class="Question">Q: ${data.content}</div>
+                        <div class="Answer">${answerText}</div>
+                    `;
+
+                    if (hasPermission) {
+                        html += `
+                            <div class="Admin-box">
+                                <textarea id="input-${id}" class="AnswerInput" placeholder="답변을 입력하세요."></textarea>
+                                <button class="Answer-Btn" onclick="window.submitAnswer('${id}')">등록</button>
+                                <button class="Delete-Btn" onclick="window.deleteQuestion('${id}')">삭제</button>
+                            </div>
+                        `;
+                    }
+
+                    Item.innerHTML = html;
+                    QnAList.appendChild(Item);
+                });
+            });
+        }
+    
+        window.submitAnswer = async (id) => {
+            const val = document.getElementById(`input-${id}`).value;
+            if (!val) return alert("답변을 입력하세요.");
+            try{
+                await updateDoc(doc(database, "questions", id), { answer: val });
+                alert("답변 완료!");
+            } catch (e) {
+                console.error("답변 등록 오류:", e);
+            }
+        };
+
+        window.deleteQuestion = async (id) => {
+            if (!confirm("이 질문을 정말 삭제하시겠습니까?")) return;
+
+            try{
+                await deleteDoc(doc(database, "questions", id));
+                alert("질문이 삭제되었습니다.");
+            }catch (e) {
+                console.error("삭제 오류: ", e);
+                alert("삭제 권한이 없거나 오류가 발생했습니다.");
+            }
+        };
+
+    </script>  
+</body>
+</html>

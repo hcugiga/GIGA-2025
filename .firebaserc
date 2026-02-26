@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "webzine-f99a8"
+  },
+  "targets": {
+    "webzine-f99a8": {
+      "hosting": {
+        "main": [
+          "umjigim"
+        ],
+        "mysite": [
+          "hcuumjigim"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
