@@ -984,7 +984,7 @@
         }
 
         #notionscreenrotate{
-            display: flex;
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -1002,6 +1002,27 @@
                 margin: auto;
             }
         }
+
+        #loadingcover{
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100dvh;
+            background-color: rgba(255,255,255, 0.9);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+
+            p{
+                display: inline-block;
+                font-size: 5vw;
+                font-weight: bolder;
+                margin: auto;
+                color: rgba(100,100,100, 0.9);
+            }
+        }
     </style>
 </head>
 
@@ -1009,6 +1030,7 @@
 <!-------------------------------------------------------------------------------------------------->
 
 <body>
+    <div id="loadingcover"><p> Loading...</p></div>
     <div id="main">
         <div class="frame" id="pageone"><div id="intro">
             <img src="image/logo/hculogo.webp" alt="chungunlogo">
@@ -1506,6 +1528,7 @@
         const pageOne = document.getElementById('pageone');
         const screenCover = document.getElementById('notionscreenrotate');
         //const applyLink = document.querySelector('#apply');
+        const loadingCover = document.getElementById('loadingcover');
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
 
@@ -1616,8 +1639,22 @@
                 mixs.forEach(el => {el.style.display = "none"});
             }
         }
+        document.querySelector('*').classList.add('lock');
         changeClublist();
         detScreenSize();
+        async function renderingWait(){
+            loadingCover.style.display = "flex";
+            const detLoad = new Promise(resolve => {
+                window.addEventListener('load', () => {
+                    resolve();
+                });
+            });
+            if(document.readyState !== "complete") await detLoad;
+            await new Promise(t =>  setTimeout(t, 250));
+            loadingCover.style.display = "none";
+        }
+        renderingWait();
+        document.querySelector('*').classList.remove('lock');
 
 //--------------------------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------------------------
