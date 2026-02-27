@@ -1010,7 +1010,7 @@
             left: 0;
             width: 100vw;
             height: 100dvh;
-            background-color: rgba(255,255,255, 0.9);
+            background-color: rgba(140,140,140, 0.9);
             z-index: 9998;
             justify-content: center;
             align-items: center;
@@ -1020,7 +1020,7 @@
                 font-size: 5vw;
                 font-weight: bolder;
                 margin: auto;
-                color: rgba(100,100,100, 0.9);
+                color: rgb(0,0,0);
             }
         }
     </style>
@@ -1548,7 +1548,8 @@
 
         function slideRight(){
             if(pagenumber < 5){
-                pagenumber += 1;
+                if(pagenumber === 0) pagenumber = 1;
+                else pagenumber += 1;
                 myMain.style.transform = `translateX(${(1 - pagenumber) * 50}vw)`;
                 if(pagenumber >= 2) {
                     backbtn.style.display = "block";
