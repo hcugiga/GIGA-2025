@@ -41,7 +41,7 @@
         }
         #main{
             display: flex;
-            width: 300vw;
+            width: 350vw;
             height: 100dvh;
             transition: transform 0.5s ease-in-out;
         }
@@ -70,8 +70,8 @@
 
             img{
                 display: block;
-                width: 25vw;
-                height: auto;
+                width: auto;
+                height: 25vw;
                 margin: 0 auto;
             }
 
@@ -453,10 +453,16 @@
                     }
                 }
                 > a{
-                    display: none;
+                    display: none !important;
                 }
                 > p{
-                    display: none;
+                    display: none !important;
+                }
+                .applyclubquestion{
+                    display: none !important;
+                }
+                .questionfile{
+                    display: none !important;
                 }
             }
 
@@ -624,7 +630,8 @@
                         overflow-y: auto;
                         scrollbar-width: none;
                         a{
-                            font-size: 1vw;
+                            font-size: 1.6vw;
+                            color: rgb(31, 31, 240) !important;
                         }
                     }
                 }
@@ -780,23 +787,6 @@
             margin: 0 3vw 2vw 3vw;
             box-sizing: border-box;
             background-color: rgba(255,255,255, 0.9);
-        }
-        #apply{
-            div{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin: 0.65vw auto;
-                width: 50vw;
-                padding: 0 0 0 30vw;
-                p{
-                    /*font-size: 1.5vw;*/
-                    border-radius: 0.5vw;
-                    height: 2.7vw;
-                    font-weight: bold;
-                    background-color: rgba(43, 41, 151, 0.3);
-                }
-            }
         }
         #top-box{
             display: flex;
@@ -973,6 +963,141 @@
                 color: black;
             }
         }
+        
+        #gotoapply{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0.65vw auto;
+            width: 50vw;
+            padding: 0 0 0 30vw;
+            p{
+                font-size: 1.5vw;
+                border-radius: 0.5vw;
+                border: 0.2vw solid black;
+                height: 2.7vw;
+                font-weight: bold;
+                background-color: rgba(43, 41, 151, 0.3);
+            }
+        }
+
+        #applyfile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50vw;
+            height: 4vw;
+            padding: 0 0 0 30vw;
+            p{
+                display: inline-block;
+                font-size: 1.5vw;
+                border-radius: 0.5vw;
+                border: 0.2vw solid black;
+                height: 2.7vw;
+                padding: 0 0.3vw;
+                font-weight: bold;
+                background-color: rgba(43, 41, 151, 0.3);
+            }
+            img{
+                display: none;
+            }
+        }
+
+        #applypage{
+            position: relative;
+            width: 44vw;
+            height: calc(100dvh - 8vw);
+            margin: auto;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: rgba(255,255,255, 0.9);
+            border: 0.3vw solid black;
+            border-radius: 2vw;
+            overflow: visible;
+
+            #applytitle{
+                width: 40vw;
+                height: calc(10dvh - 0.8vw);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                > p{
+                    font-size: 3vw;
+                    display: inline-block;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+
+            #applyquestion{
+                width: 40vw;
+                height: calc(75dvh - 6vw);
+                display: flex;
+                flex-flow: column;
+                justify-content: space-around;
+                align-items: center;
+                border: 0.3vw solid black;
+
+                > div{
+                    width: 38vw;
+                    height: calc(15dvh - 1.2vw);
+                    display: flex;
+                    align-items: center;
+
+                    > div:nth-child(1){
+                        width: 4vw;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        > p{
+                            font-size: 2.5vw;
+                            font-weight: bold;
+                            text-align: center;
+                            overflow-y: auto;
+                        }
+                    }
+
+                    > div:nth-child(2){
+                        width: 30vw;
+                        height: calc(15dvh - 1.2vw);
+                        margin: 0 auto;
+                        display: flex;
+                        align-items: center;
+                        overflow-y: auto;
+                        touch-action: pan-y;
+
+                        > p{
+                            display: block;
+                            width: 30vw;
+                            margin: auto 0;
+                            word-break: break-all;
+                            font-size: 1.2vw;
+                            text-align: start;
+                            touch-action: pan-y;
+                        }
+                    }
+                }
+            }
+            
+            #applyimage{
+                position: absolute;
+                overflow: visible;
+                left: -0.7vw;
+                img{
+                    display: inline-block;
+                    width: 0;
+                    height: calc(100dvh - 8vw);
+                    transition: width 0.5s ease, transform 0.5s ease;
+                    transform: translateX(22.5vw);
+                    background-color: white;
+                    object-fit: contain;
+                    border-radius: 2vw;
+                }
+            }
+        }
 
         #chung{
             position: fixed;
@@ -1098,315 +1223,612 @@
                 <div><p>LUCID</p><p>정규</p><p>수학</p></div>
                 <a href="clubsite/lucid.html" class="clublink"></a>
                 <p class="longinfo">청운고 학생이라면 누구나 인정하는 최강 수학 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본인이 본 동아리에 지원하게 된 이유와 자신이 이 동아리에 꼭 뽑혀야 하는 까닭을 서술하세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>수학을 공부하면서 ‘재미있다’ 혹은 ‘의미 있다’고 느꼈던 구체적인 경험을 서술하고, 이를 통해 배운 점을 설명하세요.</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>루시드에 들어오면 어떤 주제로 탐구를 진행해보고 싶나요?</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>본인의 수학적 역량을 마음껏 자랑하고(수상경력 언급 가능), 끝으로 포부를 서술해주세요.</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular mat" id="dm">
                 <div><img loading="lazy" src="image/logo/dmlogo.png" alt="DM"></div>
                 <div><p>DM</p><p>정규</p><p>수학</p></div>
                 <a href="clubsite/dm.html" class="clublink"></a>
                 <p class="longinfo">결과가 증명하는 교내<br>최고 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>당신에게 수학은 무엇인가? 그 정의가 D.M에 지원하고자 하는 이유와 어떻게 연결되는지 서술하세요. (30점)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>자신을 수식으로 표현해본다면? (수상 경력 등 자기 어필도 함께 작성) (최소 600자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>지원자가 동아리에 기여할 수 있는 부분을 각오와 함께 작성하세요. (30점)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>이 그림을 보고 떠올린 나만의 발칙한 수학적 상상은? (첨부 사진 참고, 가산점)</p></div></div>
+                </div>
+                <div class="questionfile"><img src="image/guitar/dmquestion.jpg"><p class="applyimagetrigger">4번 문항 사진</p></div>
             </div>
             <div class="regular mat" id="dnt">
                 <div><img loading="lazy" src="image/guitar/images.jpg" alt="DNT"></div>
                 <div><p>DNT</p><p>정규</p><p>수학</p></div>
                 <a href="clubsite/dnt.html" class="clublink"></a>
                 <p class="longinfo">다양한 활동을 통해 학교 생활을 재미있고 유익하게! Welcome to the DNT!</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>DNT에 지원하게 된 계기는 무엇인가요?</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>수학과 관련된 경험과 자기 인생에서 수학이란 무엇인가요? (수상 경력 가능)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>수학은 그 자체로도 효용도 높지만 타학문과 연계되며 더욱이 그 가치를 빛냅니다. 본인의 진로에서 수학을 어떻게 융합할 것 인가요? (향후 동아리 활동 방향성에 참고할 예정입니다.)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 생활의 각오 한마디 해주세요!</p></div></div>
+                </div>
+                <div class="questionfile"><img src="image/guitar/dntquestion.png"><p class="applyimagetrigger">참고 사진</p></div>
             </div>
             <div class="regular sci" id="animal">
                 <div><img loading="lazy" src="image/logo/animal.png" alt="동물의숲"></div>
                 <div><p>동물의숲</p><p>정규</p><p>생명과학</p></div>
                 <a href="clubsite/animal.html" class="clublink"></a>
                 <p class="longinfo">24기 여러분의 최고의 선택! 생명과학과 수의학을 기반으로 한 다양한 실험 활동을 진행하며, 실천적인 프로젝트나 여러 학문을 녹여낼 수 있는 심화 탐구까지 확장해 나가는 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>동물의 숲에 지원하게 된 동기를 작성해 주세요.(최대 200자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>동물과 의학에 관련된 작품(영화, 도서 등)을 보고 해당 작품에 대한 자신의 소감/견해를 작성해 주세요.(최대 300자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>동물과 관련된 실험을 하나 설정하여 설정한 이유와 그 실험 과정을 설명하시오.(최대 300자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>개체가 느끼는 고통을 실시간으로 수치화하는 인공지능 예측 모델이 개발되고 이를 기반으로 야생동물에 관한 인간의 개입(인위적 급여 등)이 개체들의 고통 수치를 감소시킬 수 있음이 증명된다면 지원자는 야생 생태계에 개입하시겠습니까? 만약 개입한다면 어디까지를 윤리적 개입이라고 볼 수 있을지도 답변하시오.(최대 600자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="cells">
                 <div><img loading="lazy" src="image/logo/cellslogo.jpg" alt="CELLS"></div>
                 <div><p>CELLS</p><p>정규</p><p>융합과학</p></div>
                 <a href="clubsite/cells.html" class="clublink"></a>
                 <p class="longinfo">물리 화학 생명 중심으로 다양한 분야의 수준 높은 실험을 진행합니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>Cells에 지원하게 된 동기가 무엇인지 말해보세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>자신의 과학과 관련된 독특한 경험(ex.수상 경력)을 자유롭게 서술하세요. </p></div></div>
+                    <div><div><p>Q3</p></div><div><p>과학 기술은 발전할 수 있는 만큼 발전해야 한다는 주장과, 인간이 스스로 발전의 한계를 정해야 한다는 주장이 있습니다. 두 입장 중 하나를 선택하여, 논리적 근거를 들어 자신의 생각을 서술하세요.</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 부원들에게 하고 싶은 말이 있다면 무엇인가요? (자유롭게)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="genius">
                 <div><img loading="lazy" src="image/logo/geniuslogo.jpg" alt="GeNiUS"></div>
                 <div><p>GeNiUS</p><p>정규</p><p>화학</p></div>
                 <a href="clubsite/genius.html" class="clublink"></a>
                 <p class="longinfo">교내 최고의 화학<br>실험 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>중학교 시절 자신은 어떤 사람이었나요?  (ex. 리더십, 교우 관계, 대회 수상 등)  (최대 400자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>인간의 목표 달성을 연소 반응으로 비유할 때, ‘완전 연소’와 ‘불완전 연소’의 차이는 무엇에 해당하는가? 화학적 의미를 유지한 채 설명하시오. (최대 400자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>GeNiUS에서 해보고 싶은 화학 탐구를 구체적으로 쓰고, '지니어스'로 4행시를 작성하시오. (최대 400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>1주일 간 청운고 생활을 해 보았는데, 가장 힘들었던 점은 무엇인가요? (최대 400자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="aim">
                 <div><img loading="lazy" src="image/logo/aimlogo.webp" alt="AIM"></div>
                 <div><p>AIM</p><p>정규</p><p>화학</p></div>
                 <a href="clubsite/aim.html" class="clublink"></a>
                 <p class="longinfo">"작은 원자, 큰 열정!" 빠르게 성장하여 교내 최대 규모로 자리 잡은 화학 기반 융합 과학 동아리로, 실험과 심화 탐구를 통해 폭넓은 과학적 경험을 제공합니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>AIM에 들어오고 싶은 이유를 쓰세요. (우리가 어떤 동아리인것 같은지를 포함하여 작성해주시기 바랍니다.) (300자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>인간을 하나의 닫힌 화학 반응기라고 가정했을때, 죽음은 화학적 평형 상태의 도달로 볼 수 있는지, 아니면 평형의 붕괴로 봐야할 지를 화학적 이론을 활용하여 서술하세요.(‘화학적 평형’이나 ‘평형의 붕괴’ 와 같은 단어는 특별한 화학 용어로 보지 마시고 단어 그대로 이해하시기 바랍니다. 표현의 의미를 스스로 해석하고 그 해석을 바탕으로 논지를 전개하시기 바랍니다.) (700자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>동아리 실험 중에 같은 동아리 부원이나 타동아리 부원과 의견이 맞지 않는 갈등 상황이 생긴다면 어떻게 그 상황을 조율하고 해결할지 작성하세요. (지피티 사용 절대 금지, 참신하면 가산점) (400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>웹진을 읽고 동아리원 한 명을 골라 첫인상에 대해 남겨주세요. (200자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="cube">
                 <div><img loading="lazy" src="image/logo/cubelogo.jpg" alt="CUBE"></div>
                 <div><p>CUBE</p><p>정규</p><p>생명과학</p></div>
                 <a href="clubsite/cube.html" class="clublink"></a>
                 <p class="longinfo">"ALL ABOUT BIOLOGY, ALL ABOUT THE WOLRD."  근본 생명과학 동아리 CUBE입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>CUBE에 지원한 동기와 동아리에서 어떤 역할을 수행할 것인지 구체적으로 서술하시오. [300자 이내]</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>다음 제시문을 보고, (가)와 (나)의 주장 중 더 타당한 것은 무엇이라고 생각하는지 그 이유와 함께 구체적으로 서술하시오. [500자 이내]<br>
+                        (가) ‘뇌주지각설(腦主知覺說)’은 인간의 지각과 사고, 감정의 중심이 뇌에 있다고 보는 이론이다. 감각기관에서 받아들인 자극은 신경을 통해 뇌로 전달되고, 뇌에서 해석될 때 비로소 인식이 이루어진다고 설명한다.<br>
+                        (나) ‘심주지각설(心主知覺說)’은 인간의 지각과 사고, 감정의 중심이 심장에 있다고 보는 이론이다. 감정이 격해질 때 심장이 빠르게 뛰는 현상 등을 근거로, 인식과 의식이 심장에서 비롯된다고 설명한다.</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>대규모 감염병으로 인해 지구에 당신을 포함한 소규모 공동체만이 남게 되었다. 이 무렵, 세포 분열의 한계를 결정하는 '텔로미어'의 길이를 무한히 연장하는 주사가 발명되었다. 주사를 맞으면 늙지 않고, 본 공동체 구성원은 지구가 멸망할 때까지 유지되며, 새로운 생명체를 낳을 수 없는 생식 불능 상태가 된다. 주사를 맞지 않으면 자연 법칙대로 늙고 죽지만, 당신의 유전적 형질을 다음 세대에 전달할 수 있다. 당신은 이 공동체의 수장이며, 당신은 공동체 전원이 이 주사를 맞을지 여부를 선택해야 한다. 당신은 어떤 선택을 내릴 것인지, 그 선택이 사회적으로 어떤 영향을 미칠지 구체적으로 서술하시오. (단, 공동체의 남녀 비율은 같으며 일부만 주사를 맞는 것은 불가능하다.) [500자 이내]</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>모 자사고에 입학한 A는 B의 친한 친구이다. 동아리 부원 모집 기간에 A는 많은 시간을 투자해 생명과학 동아리 X의 지원서를 작성했다. 하지만 B는 공부 시간에 방해가 된다는 이유로 생성형 인공지능을 이용해 지원서를 작성했다. A는 X 동아리에 불합격하였고, B는 합격했다. A는 이 사실을 동아리 부원 모집 마감 직전에 알게 되었다. A가 B를 신고하면 B의 동아리 합격이 취소되고, A가 X 동아리에 합격하게 된다. 또한 B는 A의 신고 사실을 알 수 있다. 당신이 A의 입장이라면, 어떻게 행동할 것인지 구체적으로 서술하시오. (단, 모 자사고는 동아리 지원서 작성에 생성형 인공지능을 사용하는 것을 원칙적으로 금지한다.) [300자 이내]</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="sin">
                 <div><img loading="lazy" src="image/logo/sinlogo.jpg" alt="SIN"></div>
                 <div><p>SIN</p><p>정규</p><p>융합과학</p></div>
                 <a href="clubsite/sin.html" class="clublink"></a>
-                <p class="longinfo">&gt&gt 갓동 SIN &lt&lt</p>
-                <a href="" class="applylink"></a>
+                <p class="longinfo">&gt;&gt; 갓동 SIN &lt;&lt;</p>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>SIN에 지원하게 된 이유가 무엇인가요. (300자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>당신은 산속 마을에 초청된 과학자다. 어느 날부터 마을의 모든 시계는 정상적으로 작동하는데, 주민들만 시간이 느리게 흐른다고 느끼기 시작한다. 의료 검사상 큰 이상은 없다. 이 현상을 과학적으로 설명할 수 있는 가설을 최소 두 가지 제시하고, 이를 검증할 방법을 설계하시오. (과학적인 답변, 비과학적이지만 센스있고 창의적인 답변 모두 환영) (600자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>우리 동아리에 1년 동안 단 하나의 탐구만 할 수 있는 기회가 주어진다면 어떤 주제를 탐구하고 싶나요? 본인의 역량과 연돤지어 자유롭게 적어주세요. (400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할지에 대한 각오와 본인을 어필 해주세요! (300자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="synapse">
                 <div><img loading="lazy" src="image/logo/synapselogo.jpg" alt="SYNAPSE"></div>
                 <div><p>SYNAPSE</p><p>정규</p><p>융합과학</p></div>
                 <a href="clubsite/synapse.html" class="clublink"></a>
                 <p class="longinfo">시냅스는 의료계열, 공학계열 등 이과계열이라면 모두 커버 가능한 몇없는 융합과학탐구동아리로 한 분야에 국한되지 않는 심화탐구를 진행해. 과학에 흥미가 있는 이과생이라면 어서와!</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p></p></div></div>
+                    <div><div><p>Q2</p></div><div><p></p></div></div>
+                    <div><div><p>Q3</p></div><div><p></p></div></div>
+                    <div><div><p>Q4</p></div><div><p></p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular sci" id="synabro">
                 <div><img loading="lazy" src="image/logo/synabrologo.png" alt="시나브로"></div>
                 <div><p>시나브로</p><p>정규</p><p>화학 생명</p></div>
                 <a href="clubsite/synabro.html" class="clublink"></a>
                 <p class="longinfo">SLOWLY, STEADILY, SYNABRO. 생명, 화학 관련 주제를 탐구하고, 다른 학문과의 연계를 통해 자신의 역량을 발전시키는 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>SYNAPSE에 지원하게 된 동기와, 동아리 활동을 통해 기대하는 바를 서술하세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>자신의 진로 희망(직업 또는 분야)과 관심 있는 과학 분야(물리·화학·생명과학·지구과학)를 밝히고, SYNAPSE에서 탐구해 보고 싶은 주제를 구체적으로 서술하세요.</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>중학교 재학 중 수행했던 과학 탐구 활동 중, 본인에게 가장 큰 영향을 준 활동 하나를 선택하여 서술하세요.<br>
+                        (실험, 수행평가, 대회, 수상 경력 등 포함 가능하며, 해당 활동이 본인의 사고나 학습 태도에 어떤 변화를 주었는지 중심으로 서술할 것)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>X</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular med" id="meme">
                 <div><img loading="lazy" src="image/logo/memelogo.jpg" alt="MEME"></div>
                 <div><p>MEME</p><p>정규</p><p>의학</p></div>
                 <a href="clubsite/meme.html" class="clublink"></a>
                 <p class="longinfo">Medical Education Medical Excitement</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본 동아리에 지원하게 된 동기를 서술하세요. (300자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>의대 쏠림 현상으로 인해 점점 더 많은 학생들이 의대를 지망하고 있습니다. 매년 새롭게 사회로 나오는 전문의의 수는 수천명에 달하지만 시골같은 의료 취약 지역에 그 영향이 전혀 미치지 않는 상황이 문제가 되고 있습니다. 의료의 공공성과 평등성이 무엇이며, 그것의 극대화를 위해서는 어떤 방안이 필요한지 자신의 생각을 구체적으로 서술하세요. (600자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본 동아리에서 하고 싶은 탐구를 관련된 자신의 역량과 연관지어 자유롭게 서술해주세요. (400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리에서 앞으로의 각오나 웹진을 읽고 느끼거나 인상깊었던 점 등에 대해 자유롭게 서술해주세요. (300자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular med" id="gang">
                 <div><img loading="lazy" src="image/logo/ganglogo.jpg" alt="강약중강약"></div>
                 <div><p>강약중강약</p><p>정규</p><p>약학</p></div>
                 <a href="clubsite/gang.html" class="clublink"></a>
                 <p class="longinfo">약학과 관련된 다양한 탐구와 토론 및 토의를 진행하고 다른 분야와 융합하여 심화 탐구를 진행하는 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본 동아리에 지원하게 된 동기 및 자신이 꼭 뽑혀야 하는 이유를 서술해주세요. (400자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>약과 독의 구분은 과학적 기준에 의해 결정되는지, 아니면 사회적·윤리적 맥락에 의해 재정의되는지 자신의 견해를 밝히고 그 이유를 서술해주세요. (500자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본 동아리에서 하고 싶은 탐구를 구체적으로 서술해주세요. (400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할지에 대한 각오를 서술해주세요. (300자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular med" id="it">
                 <div><img loading="lazy" src="image/logo/itlogo.png" alt="it"></div>
                 <div><p>it</p><p>정규</p><p>의학</p></div>
                 <a href="clubsite/it.html" class="clublink"></a>
                 <p class="longinfo">당신이 원하는 교내 최고의 의학 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본인이 의학 동아리 중 It에 지원하게 된 이유와 자신이 동아리에 들어와야하는 이유를 서술하시오.(최대 400자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>의학 동아리 it에서 특별히 하고 싶은 실험이나,활동이 있다면 그 이유와 내용을 구체적으로 작성해주세요. 원하는 활동을 어떻게 교과와 연계하고 실험,탐구를 진행할 것인지 구체적으로 서술하고, 그 활동의 의의에 대해 서술해주세요. (작성한 활동은 올해 동아리 활동에 반영될 수 있습니다! 하고 싶은 활동들 자유롭게 적어주시면, 실험, 탐구를 계획해볼것입니다.) (최대 300자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>나는 어떤 각오로 이 동아리 활동에 임할 것인가? (최대 300자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>인공지능이 영상 판독과 진단 정확도에서 인간 의사를 능가하는 수준에 도달했다고 가정해 봅시다. 그러나 AI의 오진으로 환자에게 심각한 피해가 발생했습니다. 이 경우 책임은 누구에게 있어야 할까요? AI 개발자, 병원, 의사, 혹은 국가일까요?<br>
+                        AI 의료 기술의 활용 범위와 책임 소재에 대해 자신의 견해를 서술하세요.(최대 400자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular med" id="ebs">
                 <div><img loading="lazy" src="image/logo/ebslogo.png" alt="EBS"></div>
                 <div><p>EBS</p><p>정규</p><p>의학</p></div>
                 <a href="clubsite/ebs.html" class="clublink"></a>
                 <p class="longinfo">“심도 있는 탐구를 위한 최고의 선택! 의학동아리 앱스.” </p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>EBS에 지원하게 된 계기와, 동아리에서 이루고 싶은 목표를 설명하시오. (200자 이하)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>최근 인상 깊게 본 과학 기사나 연구, 책이 있다면 소개하고 그 이유를 설명하시오. (700자 이하)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>평소 즐기는 취미나 활동을 소개하고, 그 경험이 동아리 활동에 어떤 도움을 줄 수 있는지 설명하시오. (300자 이하)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>우리 동아리에 꼭 뽑혀야 하는 이유를 자신의 성격에 근거하여 설명하시오. (300자 이하)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular goat" id="gigathegoat">
                 <div><img loading="lazy" src="image/logo/gigalogo.png" alt="GIGA"></div>
                 <div><p>GIGA</p><p>정규</p><p>프로그래밍</p></div>
                 <a href="clubsite/gigathegoat.html" class="clublink"></a>
                 <p class="longinfo">교내 유일 프로그래밍<br>전문 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>GIGA에 지원하게 된 동기를 쓰시오. (300자 이내)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>GIGA에서 특히 하고 싶은 활동이나 배우고 싶은 것 등을 상세하게 쓰시오. (500자 이내)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>이번 년도 움직임을 사용자의 입장에서 비평하시오. (500자 이내)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>본 지원서를 AI가 전부 작성하는 것이 문제되지 않는 이유를 쓰시오. (200자 이내)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular goat" id="stem">
                 <div><img loading="lazy" src="image/logo/stemlogo.png" alt="STEM"></div>
                 <div><p>STEM</p><p>정규</p><p>이공계</p></div>
                 <a href="clubsite/stem.html" class="clublink"></a>
                 <p class="longinfo">이공계 최고 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>※STEM은 동아리 지원을 받지 않습니다.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>※STEM은 동아리 지원을 받지 않습니다.</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>※STEM은 동아리 지원을 받지 않습니다.</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>※STEM은 동아리 지원을 받지 않습니다.</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular goat" id="samdi">
                 <div><img loading="lazy" src="image/logo/samdilogo.webp" alt="SAMDI"></div>
                 <div><p>SAMDI</p><p>정규</p><p>융합공학</p></div>
                 <a href="clubsite/samdi.html" class="clublink"></a>
                 <p class="longinfo">짱 조석현</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>삼디에 지원하게 된 동기를 적어주세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>본인이 해봤던 공학적 탐구나 활동을 적어주세요. </p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본인의 진로와 관련하여 공학과의 융합으로 해보고 싶은 활동을 적어주세요</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 생활에서의 각오를 자유롭게 적어주세요.</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular soc" id="interpol">
                 <div><img loading="lazy" src="image/logo/interpollogo.png" alt="INTERPOL"></div>
                 <div><p>INTERPOL</p><p>정규</p><p>정치외교</p></div>
                 <a href="clubsite/interpol.html" class="clublink"></a>
                 <p class="longinfo">짱 임윤지</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본인이 본 동아리에 지원하게 된 이유와 자신이 뽑혀야 하는 까닭을 서술하시오.(최대 400자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>자신이 희망하는 분야에 해당하는 질문에 답변하면 됩니다.<br>
+                        답변 예시: 1. 트럼프의 관세 정책은 긍정적인 영향을 미친다고 생각한다. 그 이유는 ~~~.<br>
+                        <br>
+                        1. 정치: 트럼프 관세 정책<br>
+                        도널드 트럼프는 재임 시기 중국 등 여러 국가에 고율 관세를 부과하며 ‘America First’를 강조하였다. 이는 보호무역주의 확산과 세계 무역 질서 변화의 계기가 되었다.<br>
+                         &rarr; 보호무역주의는 국가 경제의 장기적 성장에 긍정적인 영향을 미치는가, 아니면 부정적인 영향을 미치는가? 그 이유를 구체적으로 설명하시오.<br>
+                         <br>
+                         2. 외교: 미·중 무역 갈등<br>
+                         미국과 중국은 관세 보복을 주고받으며 무역 갈등을 심화시켰고, 이는 기술 패권 경쟁과 외교·군사 전략과도 연결되고 있다.<br>
+                         &rarr; 미·중 전략 경쟁 속에서 한국은 어떠한 외교·경제 전략을 수립해야 하는가? 현실적인 대안을 중심으로 논하시오.(최대 400자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>(Q2와 연결)<br>
+                        3. 법: 대통령 탄핵과 헌법 재판<br>
+                        한국에서는 대통령 탄핵 사건이 사회적으로 큰 논란이 되었고, 헌법재판소의 결정은 정치·법적 의미를 동시에 지닌다.<br>
+                        &rarr; 대통령 탄핵 사건은 민주주의 체제에서 어떤 기능과 의미를 가지는가? 긍정적·부정적 측면을 함께 분석하시오.<br>
+                        <br>
+                        4. 경제: 가상(암호)화폐 규제<br>
+                        비트코인 가격의 급등락은 투자 과열, 청년 자산 형성 문제, 금융 안정성 논쟁을 불러왔다.<br>
+                        &rarr; 정부는 가상화폐 시장을 강하게 규제해야 하는가, 아니면 시장 자율에 맡겨야 하는가? 금융 안정성과 혁신 촉진의 관점에서 논하시오.(최대 400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리에서 하고 싶은 활동 및 하고 싶은 말 (최대 400자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular mix" id="rapport">
                 <div><img loading="lazy" src="image/logo/rapportlogo.jpg" alt="라포르"></div>
                 <div><p>라포르</p><p>정규</p><p>심리학</p></div>
                 <a href="clubsite/rapport.html" class="clublink"></a>
                 <p class="longinfo">심리학과 다양한 학문을 융합하여 탐구하고 대규모 심리 실험을 진행하는 인간에 의한, 인간을 위한 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>라포르에 관심을 가지거나 지원하게 된 계기를 말해주세요!  (가식 없이 진짜 솔직하게!)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>심리 실험을 계획하고 진행하는 과정에서 어떤 요소를 최우선적으로 고려해야 한다고 생각하나요?</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>원만한 교우관계를 위해 어떤 자질이나 능력, 태도가 필요하다고 생각하나요?</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>인생을 살아가면서 무엇을 가장 중요하게 생각하나요? (자신의 인생 가치관을 간단히 설명해주세요.)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="regular mix" id="liberte">
                 <div><img loading="lazy" src="image/logo/libertelogo.jpg" alt="Liberte"></div>
                 <div><p>Liberte</p><p>정규</p><p>자율탐구</p></div>
                 <a href="clubsite/liberte.html" class="clublink"></a>
                 <p class="longinfo">교내 최고의 자율탐구<br>동아리 리베르트</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본 동아리에 지원한 동기에 대해 서술해주세요. (300자 이내)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>지금까지 진행한 프로젝트나 탐구활동 중 가장 인상깊었던 활동에 대해 설명해주세요. (400자 이내)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>동아리에 들어온 후 진행하고 싶은 활동에 대해 자신의 관심분야 혹은 진로와 관련해 설명해주세요. (400자 이내)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>X</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self spo" id="matchpoint">
                 <div><img loading="lazy" src="image/logo/matchpointlogo.jpg" alt="매치포인트"></div>
                 <div><p>매치포인트</p><p>주중자율</p><p>배드민턴</p></div>
                 <a href="clubsite/matchpoint.html" class="clublink"></a>
                 <p class="longinfo">주중 유일 운동 동아리! <br>쌈@뽕한 선배들과 함께!</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>짱을 상대로 낼 수 있는 점수를 적어주세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>웹진에서 가장 만만한 부원을 골라 이름으로 삼행시를 지어주세요.</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본인을 짱에게 어필하자면?(배드민턴 내용이 아니여도 괜찮습니다!)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>각오 한 마디</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself spo" id="ils">
                 <div><img loading="lazy" src="image/logo/ilslogo.jpg" alt="ILS"></div>
                 <div><p>ILS</p><p>주말자율</p><p>축구</p></div>
                 <a href="clubsite/ils.html" class="clublink"></a>
                 <p class="longinfo">짱 정태우</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>일스에 지원하게된 동기를 적어주세요</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>내가 일스에서 이거 하나만큼은 누구보다 잘할 자신이 있는것을 적어주세요</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>자신이 가지고있는 축구에 대한 애정을 표현하세요</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>X</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself spo" id="deuce">
                 <div><img loading="lazy" src="image/logo/deucelogo.png" alt="DEUCE"></div>
                 <div><p>DEUCE</p><p>주말자율</p><p>탁구</p></div>
                 <a href="clubsite/deuce.html" class="clublink"></a>
                 <p class="longinfo">누구나 재밌고 안전하게 즐길 수 있는 운동 동아리!</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>DEUCE에 입부하고 싶은 이유가 무엇입니까?(지원 동기) (400자 이하)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>탁구의 매력이 무엇이라고 생각하나요? (500자 이하)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>DEUCE의 미래 부원으로써, 각오나 포부! (300자 이하)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>X</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself spo" id="cbp">
                 <div><img loading="lazy" src="" alt="CBP"></div>
                 <div><p>CBP</p><p>주말자율</p><p>농구</p></div>
                 <a href="clubsite/cbp.html" class="clublink"></a>
                 <p class="longinfo">짱 윤지호</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>CBP에 지원하게 된 동기는?</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>선배에게 쓸 수 있는 매점 최대 금액은?</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>농구포지션과 예상순위는?</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>성별(남/여)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <!--<div class="endself spe" id="arpeggio">
                 <div><img loading="lazy" src="image/logo/hbslogo.jpg" alt="아르페지오"></div>
                 <div><p>아르페지오</p><p>주말자율</p><p>피아노</p></div>
                 <a href="clubsite/hbs.html" class="clublink"></a>
                 <p class="longinfo">짱 백승준</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p></p></div></div>
+                    <div><div><p>Q2</p></div><div><p></p></div></div>
+                    <div><div><p>Q3</p></div><div><p></p></div></div>
+                    <div><div><p>Q4</p></div><div><p></p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>-->
             <div class="self spe" id="cet">
                 <div><img loading="lazy" src="image/logo/cetlogo.jpg" alt="CET"></div>
                 <div><p>CET</p><p>주중자율</p><p>영자신문</p></div>
                 <a href="clubsite/cet.html" class="clublink"></a>
                 <p class="longinfo">영자 신문 제작</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>중학교 시절에 참여한 활동 중 자신의 영어 역량을 드러낼 수 있는 경험을 서술해주세요. (400자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>영자 신문 주제는 개인이 자율적으로 선정하는 것이기에 자주 비슷한 주제가 작성됩니다. 주제의 다양성이 감소하는 상황에서 이를 어떻게 해결하면 좋을지 서술해주세요. (400자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>영어로 입학식에 있었던 일을 서술해주세요. (500자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할 지에 대한 각오를 서술해주세요. (300자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self spe" id="ged">
                 <div><img loading="lazy" src="image/logo/gedlogo.jpg" alt="글애돝"></div>
                 <div><p>글애돝</p><p>주중자율</p><p>문예편집</p></div>
                 <a href="clubsite/ged.html" class="clublink"></a>
                 <p class="longinfo">“우리가 쓰는 글은 항상 빛이 난다” 빛바랜 추억을 빛나는 글로 담아내는 우리들의 이야기</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>글애돝에 지원하게 된 계기(공백 포함 300자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>&lt;기사 작성 후&gt; 본인 입학식 기사의 제목을 쓰세요.( 제목 자체는 평가 반영 x, 메일과 대조하기 위함)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할 지에 대한 각오(공백 포함 200자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>!!제일중요!! 입학식에 대한 기사를 공백 제외 500자 내외로 작성하여 메일로 (2510112@hcu.hs.kr) 제출, 클래스룸에 첨부된 한글(한컴독스) 파일 - &lt;글애돝 지원 기사 양식&gt; 사용</p></div></div>
+                </div>
+                <div class="questionfile"><a href="image/guitar/gedquestion.hwp" download="글애돝 기사 양식.hwp"><p>기사 양식 다운로드</p></a></div>
             </div>
             <div class="endself spe" id="stalemate">
                 <div><img loading="lazy" src="image/logo/stalematelogo.jpg" alt="STALEMATE"></div>
                 <div><p>STALEMATE</p><p>주말자율</p><p>체스,큐브</p></div>
                 <a href="clubsite/stalemate.html" class="clublink"></a>
                 <p class="longinfo">짱 장조안</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>스테일메이트에 지원하게 된 계기와, 이 동아리에서 얻고 싶은 경험을 함께 서술하세요(300자)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>사고력부문: 자신이 저질러본 가장 큰 사고는 무엇인가요? 해당 경험 이후 사고 방식의 변화를 설명하세요.(500자)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>창의력부문: 웹진에서 스테일메이트 부원중 한명의 이름을 골라 3행시를 지어보세요</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>충성심부문: 열과 성을 다해 스테일메이트의 부원이 될 자신이 있습니까? 각오를 남겨주세요! (250자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself spe" id="coex">
                 <div><img loading="lazy" src="image/logo/coexlogo.jpg" alt="COEX"></div>
                 <div><p>COEX</p><p>주말자율</p><p>환경동물</p></div>
                 <a href="clubsite/coex.html" class="clublink"></a>
                 <p class="longinfo">현대청운고의 텃밭과 동식물을 담당하는 교내 유일 환경 동물 동아리 COEX입니다. 푸릇푸릇한 자연과 함께하고 싶으신 24기 분들은 COEX로 오세요~🌱🌱</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본인에 대한 소개와 COEX에 지원하게 된 동기, 동아리 활동을 통해 기대하는 바를 적어주세요(300).</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>환경 문제 해결을 위해 가장 시급하다고 생각하는 분야 하나를 선택하고 그 이유를 설명하세요.(500)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할지에 대한 각오!!(200)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>X</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self spe" id="hbs">
                 <div><img loading="lazy" src="image/logo/hbslogo.jpg" alt="HBS"></div>
                 <div><p>HBS</p><p>주중자율</p><p>방송부</p></div>
                 <a href="clubsite/hbs.html" class="clublink"></a>
                 <p class="longinfo">현대청운고 공식 방송부, HBS에서 알려드립니다</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>출신 지역 / 중학교 / 희망 부서(현장, 메인보드, 카메라 중) (*출신 지역으로 인한 불이익은 없음을 알려드립니다.)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>동아리 지원 동기</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>행사 진행 도중, 사고가 발생했을 때 어떻게 대처할 것인가요? (400자)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할 지, 자신이 동아리에 필요한 이유 서술(200자)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself spe" id="sky">
                 <div><img loading="lazy" src="image/logo/skylogo.jpg" alt="하늘바라기"></div>
                 <div><p>하늘바라기</p><p>주말자율</p><p>천체관측</p></div>
                 <a href="clubsite/sky.html" class="clublink"></a>
-                <p class="longinfo">낭만 1티어 동아리 하늘바라기와 함께하는 천체 관측 활동</p>
-                <a href="" class="applylink"></a>
+                <p class="longinfo">낭만 1티어 동아리 하늘바라기와 함께하는 천체 관측 활동 하늘바라기 인스타 <a href="https://instagram.com/hcu_hopeful_sky" target="_blank">@hcu_hopeful_sky</a></p>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>하늘바라기에 지원하게 된 동기를 구체적으로 적어주세요.(300자 이하)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>본인이 가장 애정하는 천체(또는 천문 현상)와 그 이유를 적어주세요. (좋아하게 된 일화, 직접 관측한 경험, 관련 지식 등 자유롭게 작성해주세요. 직접 찍은 사진이나 영상이 있다면 짱의 인스타 디엠으로 보내주세요!)(500자 이하)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>별은 왜 낮에 사라질까요?(과학적 이유 말고, 자신만의 해석을 적어주세요.)(400자 이하)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>본인의 엠비티아이 및 본인이 어떤 사람인지 매력을 어필해주세요.(각오 한마디)(400자 이하)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self spe" id="arisol">
                 <div><img loading="lazy" src="image/logo/arisollogo.jpg" alt="아리솔"></div>
                 <div><p>아리솔</p><p>주중자율</p><p>도서관</p></div>
                 <a href="clubsite/arisol.html" class="clublink"></a>
                 <p class="longinfo">교내 유일 도서관 동아리로서, 도서 서고를 정리하고 대출 및 반납을 담당합니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>아리솔에 지원한 동기 및 각오를 적어주세요</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>자신의 성격을 한 단어로 표현하자면? 그리고 그 이유는?</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>책을 쓰게된다면 어떠한 책을 쓰고싶고 그 이유는 무엇인가요?</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>도서관에서 하고 싶은 행사가 있다면 무엇인지 적어주세요</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself spe" id="dixit">
                 <div><img loading="lazy" src="image/logo/dixitlogo.webp" alt="DIXIT"></div>
                 <div><p>DIXIT</p><p>주말자율</p><p>언어</p></div>
                 <a href="clubsite/dixit.html" class="clublink"></a>
                 <p class="longinfo">여러 언어에 대해 탐구하고 언어 과목 세특 제작에 도움을 주는 광기에 찬 선배들이 기다리는 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>딕시트에 들어와서 전공하고 싶은 언어 2가지와 그 이유를 서술하시오.(언어 제한 없음, 공백 제외 300자 이내)</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>인공지능의 언어 능력이 향상되어서 인간을 능가할 정도가 되었는데, 왜 언어를 학습해야 한다고 생각하나요?(언어 제한 없음, 공백 제외 500자 이내)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>자신을 한 단어로 정의해주세요(언어 제한 없음, 공백 제외 500자 이내)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>자신의 광기를 표현할 수 있는 각오를 적어주세요(언어 제한 없음, 공백 제외 300자 이내)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self spe" id="hcutube">
                 <div><img loading="lazy" src="image/logo/hcutubelogo.jpg" alt="HCUtube"></div>
                 <div><p>HCUtube</p><p>주중자율</p><p>영상제작</p></div>
                 <a href="clubsite/hcutube.html" class="clublink"></a>
                 <p class="longinfo">청운고의 얼굴들! 가장 인기있는 현대청운고 최고의 유튜브 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>HCUtube에 지원하게된 동기는?</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>본인이 HCUtube와 함께 찍고싶은 영상은?</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>지원하는 포지션과 그 이유는? (편집, 촬영, 출연 & 영상편집 가능 여부, 편집 경험도 적어주세요!)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>HCUtube를 위한 각오 한 마디</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <!--<div class="endself spe" id="focus">
                 <div><img loading="lazy" src="" alt="FOCUS"></div>
                 <div><p>FOCUS</p><p>주말자율</p><p>영상제작</p></div>
                 <a href="clubsite/focus.html" class="clublink"></a>
                 <p class="longinfo">짱 최지윤</p>   
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p></p></div></div>
+                    <div><div><p>Q2</p></div><div><p></p></div></div>
+                    <div><div><p>Q3</p></div><div><p></p></div></div>
+                    <div><div><p>Q4</p></div><div><p></p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>-->
             <!--<div class="self spe" id="palette">
                 <div><img loading="lazy" src="" alt="Palette"></div>
                 <div><p>Palette</p><p>주중자율</p><p>미술</p></div>
                 <a href="clubsite/palette.html" class="clublink"></a>
                 <p class="longinfo">짱 박재경</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p></p></div></div>
+                    <div><div><p>Q2</p></div><div><p></p></div></div>
+                    <div><div><p>Q3</p></div><div><p></p></div></div>
+                    <div><div><p>Q4</p></div><div><p></p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>-->
             <div class="endself vol" id="bluecross">
                 <div><img loading="lazy" src="image/logo/bluecrosslogo.jpg" alt="BLUECROSS"></div>
                 <div><p>BLUECROSS</p><p>주말자율</p><p>의료봉사</p></div>
                 <a href="clubsite/bluecross.html" class="clublink"></a>
                 <p class="longinfo">블루크로스는 과학적 원리를 바탕으로 한 보건, 위생 탐구 활동과 봉사를 결합하여, 실천 중심의 생명 존중 가치를 실현하는 동아리입니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>블루크로스 동아리에 지원한 동기를 구체적으로 서술해주세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>보건·위생 또는 생명 존중과 관련하여 관심 있게 탐구해 본 경험 혹은 의료 봉사 경험에 대해 작성해주세요</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>동아리 활동 중 팀 프로젝트를 수행할 때 본인이 맡고 싶은 역할과 그 이유를 쓰세요.</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>성별(남/여)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="endself vol" id="rcy">
                 <div><img loading="lazy" src="image/logo/rcylogo.png" alt="RCY"></div>
                 <div><p>RCY</p><p>주말자율</p><p>봉사</p></div>
                 <a href="clubsite/rcy.html" class="clublink"></a>
                 <p class="longinfo">경쟁률 1위의 교내 최대 규모 봉사 동아리로 입학설명회, 면접, 헌혈행사 등을 담당하며 다양한 분야의 봉사활동을 합니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본 동아리에 지원하게 된 동기를 구체적으로 작성해 주십시오.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>본 동아리에 선발될 경우, 진행하고 싶은 기부 프로젝트를 구체적으로 기획하여 작성해  주십시오. (단, 행사의 목적, 진행 방식, 예상되는 결과를 반드시 포함할 것)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본인이 기획한 기부 프로젝트의 참여율을 향상시키기 위한 방안을 작성해 주십시오.<br>
+                        또한, 참여율이 예상보다 저조할 경우 이를 어떻게 보완하고 극복할 것인지 구체적으로 서술해 주십시오.</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>봉사활동 준비 과정에서 일부 인원의 업무 부담이 과도하게 커진 상황입니다. 이대로 진행할 경우 행사 완성도는 높아질 수 있지만, 해당 인원에게는 큰 부담이 됩니다.<br>
+                        <br>
+                        이와 같은 상황에서 본인은 어떠한 기준(예: 공정성, 효율성, 책임 등)을 바탕으로 어떻게 행동할 것인지 서술하고, 그 이유와 구체적인 대응 방안을 함께 작성해 주십시오.<br>
+                        <br>
+                        (단, '어떠한 기준'에 대한 예시는 문항의 이해를 돕기 위한 것으로, 특정 기준의 선택 여부는 평가 요소에 포함되지 않습니다.)</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self per" id="solmae">
-                <div><img loading="lazy" src="" alt="솔매"></div>
+                <div><img loading="lazy" src="image/logo/solmaelogo.jpg" alt="솔매"></div>
                 <div><p>솔매</p><p>주중자율</p><p>난타</p></div>
                 <a href="clubsite/solmae.html" class="clublink"></a>
-                <p class="longinfo">짱 김주하</p>
-                <a href="" class="applylink"></a>
+                <p class="longinfo">고운여율(鼓韻餘律).<br>심장에 박동을 남기다.</p>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>본인이 솔매의 부원이 되고자하는 이유 및 되어야하는 이유를 간단하게 작성해주세요</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>X</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>X</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>X</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self per" id="symphony">
                 <div><img loading="lazy" src="image/logo/symphonylogo.png" alt="심포니"></div>
                 <div><p>심포니</p><p>주중자율</p><p>오케스트라</p></div>
                 <a href="clubsite/symphony.html" class="clublink"></a>
                 <p class="longinfo">짱 황지인</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>?</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>?</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>?</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>?</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self per" id="dell">
                 <div><img loading="lazy" src="image/logo/delllogo.png" alt="DELL"></div>
                 <div><p>DELL</p><p>주중자율</p><p>밴드</p></div>
                 <a href="clubsite/dell.html" class="clublink"></a>
                 <p class="longinfo">밴드붐은 왔다. 교내 최고 공연동아리 DELL</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>지원하는 포지션이 무엇인가요? 2순위까지 적어주세요. 예) 1순위: 일렉트릭 기타 2순위: 보컬</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>공연 때 어떤 곡을 공연하고싶나요? (가수/제목)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>면접에서 선보일 곡이 무엇인가요? (가수/제목)</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>요즘 연습하고 있는 곡이 있나요? (제목/가수, 없으면 '없음')</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self per" id="showgun">
                 <div><img loading="lazy" src="image/logo/showgunlogo.png" alt="쇼군"></div>
                 <div><p>쇼군</p><p>주중자율</p><p>랩,힙합</p></div>
                 <a href="clubsite/showgun.html" class="clublink"></a>
                 <p class="longinfo">교내 최고의<br>힙합 동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>쇼군에 지원하게 된 동기를 밝혀주세요!</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>본인이 면접 때 진행하고 싶은 곡(벌스 하나) 유튜브 URL 및 구간 (ex-수퍼비 문제아, https://m.youtube.com/watch?v=qD2sMUr14bE&list=RDqD2sMUr14bE&start_radio=1&pp=ygUJ66y47KCc7JWEoAcB0gcJCaIKAYcqIYzv, 1:25-1:50)</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본인이 면접 때 진행하고 싶은 곡2(벌스 하나) 유튜브 URL 및 구간 (ex-수퍼비 문제아, https://m.youtube.com/watch?v=qD2sMUr14bE&list=RDqD2sMUr14bE&start_radio=1&pp=ygUJ66y47KCc7JWEoAcB0gcJCaIKAYcqIYzv, 1:25-1:50)*앞에서 선정한 곡과 다른 곡으로 해주시길 바랍니다!*</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>각오 한 마디</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self per" id="rhapsody">
                 <div><img loading="lazy" src="image/logo/rhapsodylogo.jpg" alt="Rhapsody"></div>  
                 <div><p>Rhapsody</p><p>주중자율</p><p>보컬</p></div>
                 <a href="clubsite/rhapsody.html" class="clublink"></a>
                 <p class="longinfo">유서 깊은 교내 유일 보컬 동아리로, 노래를 부르고 공연에 참여합니다.</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>여자 지정곡: 다시 만난 세계- 소녀시대 or 우주를 줄게- 볼빨간 사춘기<br>
+                        남자 지정곡: 가시- 버즈 or 너를 만나- 폴킴<br>
+                        위 지정곡들 중 면접에서 선보일 곡 하나를 선택해 작성해주세요.</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>면접에서 부를 자유곡을 작성해주세요.</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>본인의 보컬 특성을 고려했을 때, 웹진에 적힌 특징을 참고하여 가장 듀엣을 하면 잘 어울릴 것 같은 부원을 선정하고 이유를 작성해주세요.</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>무대 아이디어나 공연에서 선보이고 싶은 노래를 작성해주세요.</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
             <div class="self per" id="lod">
                 <div><img loading="lazy" src="image/logo/lodlogo.jpg" alt="LOD"></div>
                 <div><p>LOD</p><p>주중자율</p><p>댄스</p></div>
                 <a href="clubsite/lod.html" class="clublink"></a>
                 <p class="longinfo">현대청운고 유일무이<br>댄스동아리</p>
-                <a href="" class="applylink"></a>
+                <div class="applyclubquestion">
+                    <div><div><p>Q1</p></div><div><p>?</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>?</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>?</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>?</p></div></div>
+                </div>
+                <div class="questionfile"></div>
             </div>
         </div>
         <div id="scrollnotice"><p>▼ 드래그</p></div>
@@ -1429,9 +1851,9 @@
     </div>
 
         <div class="frame">
-            <a href="" id="apply" target="_blank" style="color: black;"><div>
-                <p>동아리 지원하기</p>
-            </div></a>
+            <div id="gotoapply">
+                <p>▶ 지원서 문항</p>
+            </div>
             <div id="centerstage">
                 <div id="top-box">
                     <div id="auth-boxleft">
@@ -1450,6 +1872,20 @@
                 <div id="mention-box">
                     <p id="mention-text"></p>
                 </div>
+            </div>
+        </div>
+
+        <div class="frame">
+            <div id="applyfile"><p>파일 다운로드</p></div>
+            <div id="applypage">
+                <div id="applytitle"><p>name 문항</p></div>
+                <div id="applyquestion">
+                    <div><div><p>Q1</p></div><div><p></p></div></div>
+                    <div><div><p>Q2</p></div><div><p></p></div></div>
+                    <div><div><p>Q3</p></div><div><p></p></div></div>
+                    <div><div><p>Q4</p></div><div><p></p></div></div>
+                </div>
+                <div id="applyimage"><img src=""></div>
             </div>
         </div>
     </div>
@@ -1481,6 +1917,7 @@
         let touchId = null;
         let regorselnumber = 0;
         let typeofclub = 0;
+        let applyfileInnerText = "";
         const myMain = document.getElementById('main');
         const bigreg = document.getElementById('reg');
         const bigsel = document.getElementById('sel');
@@ -1527,7 +1964,7 @@
         const handleZero = document.getElementById('handle');
         const pageOne = document.getElementById('pageone');
         const screenCover = document.getElementById('notionscreenrotate');
-        //const applyLink = document.querySelector('#apply');
+        const gotoApply = document.querySelector('#gotoapply');
         const loadingCover = document.getElementById('loadingcover');
 
 //--------------------------------------------------------------------------------------------------
@@ -1543,11 +1980,11 @@
 
             setTimeout(() => {
                 document.querySelector('*').classList.remove('lock');
-            }, 500);
+            }, 550);
         }
 
         function slideRight(){
-            if(pagenumber < 5){
+            if(pagenumber < 6){
                 if(pagenumber === 0) pagenumber = 1;
                 else pagenumber += 1;
                 myMain.style.transform = `translateX(${(1 - pagenumber) * 50}vw)`;
@@ -1561,6 +1998,11 @@
             }
         }
         function slideLeft(){
+            if(pagenumber === 5){
+                document.querySelector('#applyimage img').src = "";
+                document.querySelector('#applyimage img').style.transform = "translateX(22.5vw)";
+                document.querySelector('#applyimage img').style.width = "0";
+            }
             if(pagenumber > 1){
                 pagenumber -= 1;
                 myMain.style.transform = `translateX(${(1 - pagenumber) * 50}vw)`;
@@ -1641,6 +2083,20 @@
                 mixs.forEach(el => {el.style.display = "none"});
             }
         }
+        function applyImageClick(){
+            lockInteraction();
+            if(document.querySelector('#applyfile p').innerText === applyfileInnerText){
+                document.querySelector('#applyimage img').style.width = "45vw";
+                document.querySelector('#applyimage img').style.transform = "translateX(0)";
+                document.querySelector('#applyfile p').innerText = "숨기기";
+            }
+            else{
+                document.querySelector('#applyimage img').style.width = "0";
+                document.querySelector('#applyimage img').style.transform = "translateX(22.5vw)";
+                document.querySelector('#applyfile p').innerText = applyfileInnerText;
+            }
+        }
+
         document.querySelector('*').classList.add('lock');
         changeClublist();
         detScreenSize();
@@ -1844,6 +2300,10 @@
             if(pagenumber === 4) slideRight();
         });
 
+        gotoApply.addEventListener('click', () => {
+            if(pagenumber === 5) slideRight();
+        });
+
         slidebtns1.forEach(btn => {
             btn.addEventListener('click', () => {
                 if(pagenumber === 1) slideRight();
@@ -1905,6 +2365,7 @@
         });
         gotoDetails.forEach(e => {
             e.addEventListener('click', () => {
+                lockInteraction();
                 detailnameContent.innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(1)').innerText;
                 detailimgContent.src = e.querySelector(':scope div:nth-child(1) img').src;
                 detailregorselContent.innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(2)').innerText;
@@ -1913,10 +2374,21 @@
                 gotoClubsite.href = e.querySelector('.clublink').href;
                 document.querySelector('#detailregorsel').style.backgroundColor = getComputedStyle(e.querySelector(':scope div:nth-child(2) p:nth-child(2)')).backgroundColor;
                 document.querySelector('#detailshortinfo').style.backgroundColor = getComputedStyle(e.querySelector(':scope div:nth-child(2) p:nth-child(3)')).backgroundColor;
-                //applyLink.href = e.querySelector('.applylink').href;
+                document.querySelector('#applyquestion').innerHTML = e.querySelector('.applyclubquestion').innerHTML;
+                document.querySelector('#applyfile').innerHTML = e.querySelector('.questionfile').innerHTML;
+                applyfileInnerText = document.querySelector('#applyfile p')?.innerText;  
+                document.querySelector('#applyimage img').src = e.querySelector('.questionfile img')?.src;
+                if(document.querySelector('#applyimage img').src !== ""){
+                    document.querySelector('#applyfile .applyimagetrigger')?.removeEventListener('click', applyImageClick);
+                    document.querySelector('#applyfile .applyimagetrigger')?.addEventListener('click', applyImageClick);
+                }
+                document.querySelector('#applyimage img').style.width = "0";
+                document.querySelector('#applytitle > p').innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(1)').innerText + " 문항";
                 if(pagenumber === 3) slideRight();
             });
         });
+        
+        const applyImageTrigger = document.querySelector('#applyfile .applyimagetrigger');
     </script>
 <!----------------------------------------------------------------------------------------------------------------------------->
     <script type="module">
