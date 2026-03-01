@@ -464,6 +464,9 @@
                 .questionfile{
                     display: none !important;
                 }
+                .clubselfinfo{
+                    display: none !important;
+                }
             }
 
             #selectnone{
@@ -1007,7 +1010,7 @@
             position: relative;
             width: 44vw;
             height: calc(100dvh - 8vw);
-            margin: auto;
+            margin: 0 auto;
             display: flex;
             flex-flow: column;
             justify-content: space-evenly;
@@ -1095,6 +1098,31 @@
                     background-color: white;
                     object-fit: contain;
                     border-radius: 2vw;
+                }
+            }
+        }
+
+        #applyselfinfo{
+            width: 50vw;
+            height: 4vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > div{
+                width: 15vw;
+                height: 4vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                > p{
+                    display: inline-block;
+                    font-size: 2vw;
+                    font-weight: bold;
+                    text-align: center;
+                    background-color: rgba(255,255,255, 0.7);
+                    padding: 0 0.5vw;
+                    border: 0.3vw solid black;
+                    border-radius: 1vw;
                 }
             }
         }
@@ -1230,6 +1258,7 @@
                     <div><div><p>Q4</p></div><div><p>본인의 수학적 역량을 마음껏 자랑하고(수상경력 언급 가능), 끝으로 포부를 서술해주세요.</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular mat" id="dm">
                 <div><img loading="lazy" src="image/logo/dmlogo.png" alt="DM"></div>
@@ -1243,6 +1272,7 @@
                     <div><div><p>Q4</p></div><div><p>이 그림을 보고 떠올린 나만의 발칙한 수학적 상상은? (첨부 사진 참고, 가산점)</p></div></div>
                 </div>
                 <div class="questionfile"><img src="image/guitar/dmquestion.jpg"><p class="applyimagetrigger">4번 문항 사진</p></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular mat" id="dnt">
                 <div><img loading="lazy" src="image/guitar/images.jpg" alt="DNT"></div>
@@ -1256,6 +1286,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 생활의 각오 한마디 해주세요!</p></div></div>
                 </div>
                 <div class="questionfile"><img src="image/guitar/dntquestion.png"><p class="applyimagetrigger">참고 사진</p></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="animal">
                 <div><img loading="lazy" src="image/logo/animal.png" alt="동물의숲"></div>
@@ -1269,6 +1300,7 @@
                     <div><div><p>Q4</p></div><div><p>개체가 느끼는 고통을 실시간으로 수치화하는 인공지능 예측 모델이 개발되고 이를 기반으로 야생동물에 관한 인간의 개입(인위적 급여 등)이 개체들의 고통 수치를 감소시킬 수 있음이 증명된다면 지원자는 야생 생태계에 개입하시겠습니까? 만약 개입한다면 어디까지를 윤리적 개입이라고 볼 수 있을지도 답변하시오.(최대 600자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="cells">
                 <div><img loading="lazy" src="image/logo/cellslogo.jpg" alt="CELLS"></div>
@@ -1282,6 +1314,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 부원들에게 하고 싶은 말이 있다면 무엇인가요? (자유롭게)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="genius">
                 <div><img loading="lazy" src="image/logo/geniuslogo.jpg" alt="GeNiUS"></div>
@@ -1295,6 +1328,7 @@
                     <div><div><p>Q4</p></div><div><p>1주일 간 청운고 생활을 해 보았는데, 가장 힘들었던 점은 무엇인가요? (최대 400자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="aim">
                 <div><img loading="lazy" src="image/logo/aimlogo.webp" alt="AIM"></div>
@@ -1308,6 +1342,7 @@
                     <div><div><p>Q4</p></div><div><p>웹진을 읽고 동아리원 한 명을 골라 첫인상에 대해 남겨주세요. (200자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="cube">
                 <div><img loading="lazy" src="image/logo/cubelogo.jpg" alt="CUBE"></div>
@@ -1323,6 +1358,7 @@
                     <div><div><p>Q4</p></div><div><p>모 자사고에 입학한 A는 B의 친한 친구이다. 동아리 부원 모집 기간에 A는 많은 시간을 투자해 생명과학 동아리 X의 지원서를 작성했다. 하지만 B는 공부 시간에 방해가 된다는 이유로 생성형 인공지능을 이용해 지원서를 작성했다. A는 X 동아리에 불합격하였고, B는 합격했다. A는 이 사실을 동아리 부원 모집 마감 직전에 알게 되었다. A가 B를 신고하면 B의 동아리 합격이 취소되고, A가 X 동아리에 합격하게 된다. 또한 B는 A의 신고 사실을 알 수 있다. 당신이 A의 입장이라면, 어떻게 행동할 것인지 구체적으로 서술하시오. (단, 모 자사고는 동아리 지원서 작성에 생성형 인공지능을 사용하는 것을 원칙적으로 금지한다.) [300자 이내]</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="sin">
                 <div><img loading="lazy" src="image/logo/sinlogo.jpg" alt="SIN"></div>
@@ -1336,6 +1372,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할지에 대한 각오와 본인을 어필 해주세요! (300자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="synapse">
                 <div><img loading="lazy" src="image/logo/synapselogo.jpg" alt="SYNAPSE"></div>
@@ -1349,6 +1386,7 @@
                     <div><div><p>Q4</p></div><div><p></p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular sci" id="synabro">
                 <div><img loading="lazy" src="image/logo/synabrologo.png" alt="시나브로"></div>
@@ -1363,6 +1401,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular med" id="meme">
                 <div><img loading="lazy" src="image/logo/memelogo.jpg" alt="MEME"></div>
@@ -1376,6 +1415,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리에서 앞으로의 각오나 웹진을 읽고 느끼거나 인상깊었던 점 등에 대해 자유롭게 서술해주세요. (300자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular med" id="gang">
                 <div><img loading="lazy" src="image/logo/ganglogo.jpg" alt="강약중강약"></div>
@@ -1389,6 +1429,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할지에 대한 각오를 서술해주세요. (300자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular med" id="it">
                 <div><img loading="lazy" src="image/logo/itlogo.png" alt="it"></div>
@@ -1403,6 +1444,7 @@
                         AI 의료 기술의 활용 범위와 책임 소재에 대해 자신의 견해를 서술하세요.(최대 400자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular med" id="ebs">
                 <div><img loading="lazy" src="image/logo/ebslogo.png" alt="EBS"></div>
@@ -1416,6 +1458,7 @@
                     <div><div><p>Q4</p></div><div><p>우리 동아리에 꼭 뽑혀야 하는 이유를 자신의 성격에 근거하여 설명하시오. (300자 이하)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular goat" id="gigathegoat">
                 <div><img loading="lazy" src="image/logo/gigalogo.png" alt="GIGA"></div>
@@ -1429,6 +1472,7 @@
                     <div><div><p>Q4</p></div><div><p>본 지원서를 AI가 전부 작성하는 것이 문제되지 않는 이유를 쓰시오. (200자 이내)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular goat" id="stem">
                 <div><img loading="lazy" src="image/logo/stemlogo.png" alt="STEM"></div>
@@ -1442,6 +1486,7 @@
                     <div><div><p>Q4</p></div><div><p>※STEM은 동아리 지원을 받지 않습니다.</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular goat" id="samdi">
                 <div><img loading="lazy" src="image/logo/samdilogo.webp" alt="SAMDI"></div>
@@ -1455,6 +1500,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 생활에서의 각오를 자유롭게 적어주세요.</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular soc" id="interpol">
                 <div><img loading="lazy" src="image/logo/interpollogo.png" alt="INTERPOL"></div>
@@ -1484,6 +1530,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리에서 하고 싶은 활동 및 하고 싶은 말 (최대 400자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular mix" id="rapport">
                 <div><img loading="lazy" src="image/logo/rapportlogo.jpg" alt="라포르"></div>
@@ -1497,6 +1544,7 @@
                     <div><div><p>Q4</p></div><div><p>인생을 살아가면서 무엇을 가장 중요하게 생각하나요? (자신의 인생 가치관을 간단히 설명해주세요.)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="regular mix" id="liberte">
                 <div><img loading="lazy" src="image/logo/libertelogo.jpg" alt="Liberte"></div>
@@ -1510,6 +1558,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self spo" id="matchpoint">
                 <div><img loading="lazy" src="image/logo/matchpointlogo.jpg" alt="매치포인트"></div>
@@ -1523,6 +1572,7 @@
                     <div><div><p>Q4</p></div><div><p>각오 한 마디</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 O</p></div></div>
             </div>
             <div class="endself spo" id="ils">
                 <div><img loading="lazy" src="image/logo/ilslogo.jpg" alt="ILS"></div>
@@ -1536,6 +1586,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spo" id="deuce">
                 <div><img loading="lazy" src="image/logo/deucelogo.png" alt="DEUCE"></div>
@@ -1549,6 +1600,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spo" id="cbp">
                 <div><img loading="lazy" src="" alt="CBP"></div>
@@ -1562,6 +1614,7 @@
                     <div><div><p>Q4</p></div><div><p>성별(남/여)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spe" id="arpeggio">
                 <div><img loading="lazy" src="image/logo/arpeggiologo.png" alt="아르페지오"></div>
@@ -1575,6 +1628,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self spe" id="cet">
                 <div><img loading="lazy" src="image/logo/cetlogo.jpg" alt="CET"></div>
@@ -1588,6 +1642,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할 지에 대한 각오를 서술해주세요. (300자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self spe" id="ged">
                 <div><img loading="lazy" src="image/logo/gedlogo.jpg" alt="글애돝"></div>
@@ -1601,6 +1656,7 @@
                     <div><div><p>Q4</p></div><div><p>!!제일중요!! 입학식에 대한 기사를 공백 제외 500자 내외로 작성하여 메일로 (2510112@hcu.hs.kr) 제출, 클래스룸에 첨부된 한글(한컴독스) 파일 - &lt;글애돝 지원 기사 양식&gt; 사용</p></div></div>
                 </div>
                 <div class="questionfile"><a href="image/guitar/gedquestion.hwp" download="글애돝 지원 기사 양식.hwp"><p>기사 양식 다운로드</p></a></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spe" id="stalemate">
                 <div><img loading="lazy" src="image/logo/stalematelogo.jpg" alt="STALEMATE"></div>
@@ -1614,6 +1670,7 @@
                     <div><div><p>Q4</p></div><div><p>충성심부문: 열과 성을 다해 스테일메이트의 부원이 될 자신이 있습니까? 각오를 남겨주세요! (250자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spe" id="coex">
                 <div><img loading="lazy" src="image/logo/coexlogo.jpg" alt="COEX"></div>
@@ -1627,6 +1684,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 O</p></div></div>
             </div>
             <div class="self spe" id="hbs">
                 <div><img loading="lazy" src="image/logo/hbslogo.jpg" alt="HBS"></div>
@@ -1640,6 +1698,7 @@
                     <div><div><p>Q4</p></div><div><p>동아리 부원이 되었을 때 어떻게 행동할 지, 자신이 동아리에 필요한 이유 서술(200자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spe" id="sky">
                 <div><img loading="lazy" src="image/logo/skylogo.jpg" alt="하늘바라기"></div>
@@ -1653,6 +1712,7 @@
                     <div><div><p>Q4</p></div><div><p>본인의 엠비티아이 및 본인이 어떤 사람인지 매력을 어필해주세요.(각오 한마디)(400자 이하)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self spe" id="arisol">
                 <div><img loading="lazy" src="image/logo/arisollogo.jpg" alt="아리솔"></div>
@@ -1666,6 +1726,7 @@
                     <div><div><p>Q4</p></div><div><p>도서관에서 하고 싶은 행사가 있다면 무엇인지 적어주세요</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spe" id="dixit">
                 <div><img loading="lazy" src="image/logo/dixitlogo.webp" alt="DIXIT"></div>
@@ -1679,6 +1740,7 @@
                     <div><div><p>Q4</p></div><div><p>자신의 광기를 표현할 수 있는 각오를 적어주세요(언어 제한 없음, 공백 제외 300자 이내)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self spe" id="hcutube">
                 <div><img loading="lazy" src="image/logo/hcutubelogo.jpg" alt="HCUtube"></div>
@@ -1692,6 +1754,7 @@
                     <div><div><p>Q4</p></div><div><p>HCUtube를 위한 각오 한 마디</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <!--<div class="endself spe" id="focus">
                 <div><img loading="lazy" src="" alt="FOCUS"></div>
@@ -1705,6 +1768,7 @@
                     <div><div><p>Q4</p></div><div><p></p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>-->
             <!--<div class="self spe" id="palette">
                 <div><img loading="lazy" src="" alt="Palette"></div>
@@ -1718,6 +1782,7 @@
                     <div><div><p>Q4</p></div><div><p></p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>-->
             <div class="endself vol" id="bluecross">
                 <div><img loading="lazy" src="image/logo/bluecrosslogo.jpg" alt="BLUECROSS"></div>
@@ -1731,6 +1796,7 @@
                     <div><div><p>Q4</p></div><div><p>성별(남/여)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself vol" id="rcy">
                 <div><img loading="lazy" src="image/logo/rcylogo.png" alt="RCY"></div>
@@ -1749,6 +1815,7 @@
                         (단, '어떠한 기준'에 대한 예시는 문항의 이해를 돕기 위한 것으로, 특정 기준의 선택 여부는 평가 요소에 포함되지 않습니다.)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self per" id="solmae">
                 <div><img loading="lazy" src="image/logo/solmaelogo.jpg" alt="솔매"></div>
@@ -1762,6 +1829,7 @@
                     <div><div><p>Q4</p></div><div><p>X</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 ?</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self per" id="symphony">
                 <div><img loading="lazy" src="image/logo/symphonylogo.png" alt="심포니"></div>
@@ -1775,6 +1843,7 @@
                     <div><div><p>Q4</p></div><div><p>?</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="self per" id="dell">
                 <div><img loading="lazy" src="image/logo/delllogo.png" alt="DELL"></div>
@@ -1788,6 +1857,7 @@
                     <div><div><p>Q4</p></div><div><p>요즘 연습하고 있는 곡이 있나요? (제목/가수, 없으면 '없음')</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 O</p></div></div>
             </div>
             <div class="self per" id="showgun">
                 <div><img loading="lazy" src="image/logo/showgunlogo.png" alt="쇼군"></div>
@@ -1801,6 +1871,7 @@
                     <div><div><p>Q4</p></div><div><p>각오 한 마디</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 O</p></div></div>
             </div>
             <div class="self per" id="rhapsody">
                 <div><img loading="lazy" src="image/logo/rhapsodylogo.jpg" alt="Rhapsody"></div>  
@@ -1816,6 +1887,7 @@
                     <div><div><p>Q4</p></div><div><p>무대 아이디어나 공연에서 선보이고 싶은 노래를 작성해주세요.</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 O</p></div></div>
             </div>
             <div class="self per" id="lod">
                 <div><img loading="lazy" src="image/logo/lodlogo.jpg" alt="LOD"></div>
@@ -1829,6 +1901,7 @@
                     <div><div><p>Q4</p></div><div><p>?</p></div></div>
                 </div>
                 <div class="questionfile"></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
         </div>
         <div id="scrollnotice"><p>▼ 드래그</p></div>
@@ -1880,13 +1953,14 @@
             <div id="applypage">
                 <div id="applytitle"><p>name 문항</p></div>
                 <div id="applyquestion">
-                    <div><div><p>Q1</p></div><div><p></p></div></div>
-                    <div><div><p>Q2</p></div><div><p></p></div></div>
-                    <div><div><p>Q3</p></div><div><p></p></div></div>
-                    <div><div><p>Q4</p></div><div><p></p></div></div>
+                    <div><div><p>Q1</p></div><div><p>1stquestion</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>2ndquestion</p></div></div>
+                    <div><div><p>Q3</p></div><div><p>3rdquestion</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>4thquestion</p></div></div>
                 </div>
                 <div id="applyimage"><img src=""></div>
             </div>
+            <div id="applyselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
         </div>
     </div>
     
@@ -2384,6 +2458,9 @@
                 }
                 document.querySelector('#applyimage img').style.width = "0";
                 document.querySelector('#applytitle > p').innerText = e.querySelector(':scope div:nth-child(2) p:nth-child(1)').innerText + " 문항";
+                document.querySelector('#applyselfinfo').innerHTML = e.querySelector('.clubselfinfo').innerHTML;
+                if(bigclubnumber === 1) document.querySelector('#applyselfinfo').style.opacity = "0";
+                else document.querySelector('#applyselfinfo').style.opacity = "1";
                 if(pagenumber === 3) slideRight();
             });
         });
