@@ -1441,7 +1441,7 @@
                     <div><div><p>Q2</p></div><div><p>의학 동아리 it에서 특별히 하고 싶은 실험이나,활동이 있다면 그 이유와 내용을 구체적으로 작성해주세요. 원하는 활동을 어떻게 교과와 연계하고 실험,탐구를 진행할 것인지 구체적으로 서술하고, 그 활동의 의의에 대해 서술해주세요. (작성한 활동은 올해 동아리 활동에 반영될 수 있습니다! 하고 싶은 활동들 자유롭게 적어주시면, 실험, 탐구를 계획해볼것입니다.) (최대 300자)</p></div></div>
                     <div><div><p>Q3</p></div><div><p>나는 어떤 각오로 이 동아리 활동에 임할 것인가? (최대 300자)</p></div></div>
                     <div><div><p>Q4</p></div><div><p>인공지능이 영상 판독과 진단 정확도에서 인간 의사를 능가하는 수준에 도달했다고 가정해 봅시다. 그러나 AI의 오진으로 환자에게 심각한 피해가 발생했습니다. 이 경우 책임은 누구에게 있어야 할까요? AI 개발자, 병원, 의사, 혹은 국가일까요?<br>
-                        AI 의료 기술의 활용 범위와 책임 소재에 대해 자신의 견해를 서술하세요.(최대 400자)</p></div></div>
+                        AI 의료 기술의 활용 범위와 책임 소재에 대해 자신의 견해를 서술하세요.(최대 500자)</p></div></div>
                 </div>
                 <div class="questionfile"></div>
                 <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
@@ -1572,7 +1572,7 @@
                     <div><div><p>Q4</p></div><div><p>각오 한 마디</p></div></div>
                 </div>
                 <div class="questionfile"></div>
-                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 O</p></div></div>
+                <div class="clubselfinfo"><div><p>면접 O</p></div><div><p>공개연습 X</p></div></div>
             </div>
             <div class="endself spo" id="ils">
                 <div><img loading="lazy" src="image/logo/ilslogo.jpg" alt="ILS"></div>
@@ -2461,6 +2461,9 @@
                 document.querySelector('#applyselfinfo').innerHTML = e.querySelector('.clubselfinfo').innerHTML;
                 if(bigclubnumber === 1) document.querySelector('#applyselfinfo').style.opacity = "0";
                 else document.querySelector('#applyselfinfo').style.opacity = "1";
+                if(detailnameContent.innerText === "글애돝") document.querySelector('#applyquestion > div:nth-child(4) div:nth-child(1) p').innerText = "기사";
+                if(detailnameContent.innerText === "글애돝") document.querySelector('#applyquestion > div:nth-child(4) div:nth-child(1) p').style.fontSize = "2vw";
+                else document.querySelector('#applyquestion > div:nth-child(4) div:nth-child(1) p').style.fontSize = "2.5vw";
                 if(pagenumber === 3) slideRight();
             });
         });
