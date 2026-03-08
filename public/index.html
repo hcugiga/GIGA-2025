@@ -840,6 +840,7 @@
             overflow-y: auto;   
             overflow-x: hidden;
             background-color: white;
+            touch-action: pan-y;
         }
 
         #QnAList::-webkit-scrollbar{
@@ -852,15 +853,18 @@
             border: 0.1vw solid black;
             background-color: rgb(238, 238, 238);
             border-radius: 0.5vw;
+            touch-action: pan-y;
         }
         .Question{
             font-weight: bold;
             font-size: 1vw;
             margin: 0.2dvh 1vw;
+            touch-action: pan-y;
         }
         .Answer{
             font-size: 1vw;
             margin: 0.3dvh 1.1vw;
+            touch-action: pan-y;
             span{
                 font-size: 1vw;
             }
