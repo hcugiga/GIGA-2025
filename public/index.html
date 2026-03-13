@@ -1354,12 +1354,10 @@
                 <a href="clubsite/cube.html" class="clublink"></a>
                 <p class="longinfo">"ALL ABOUT BIOLOGY, ALL ABOUT THE WOLRD."  근본 생명과학 동아리 CUBE입니다.</p>
                 <div class="applyclubquestion">
-                    <div><div><p>Q1</p></div><div><p>CUBE에 지원한 동기와 동아리에서 어떤 역할을 수행할 것인지 구체적으로 서술하시오. [300자 이내]</p></div></div>
-                    <div><div><p>Q2</p></div><div><p>다음 제시문을 보고, (가)와 (나)의 주장 중 더 타당한 것은 무엇이라고 생각하는지 그 이유와 함께 구체적으로 서술하시오. [500자 이내]<br>
-                        (가) ‘뇌주지각설(腦主知覺說)’은 인간의 지각과 사고, 감정의 중심이 뇌에 있다고 보는 이론이다. 감각기관에서 받아들인 자극은 신경을 통해 뇌로 전달되고, 뇌에서 해석될 때 비로소 인식이 이루어진다고 설명한다.<br>
-                        (나) ‘심주지각설(心主知覺說)’은 인간의 지각과 사고, 감정의 중심이 심장에 있다고 보는 이론이다. 감정이 격해질 때 심장이 빠르게 뛰는 현상 등을 근거로, 인식과 의식이 심장에서 비롯된다고 설명한다.</p></div></div>
+                    <div><div><p>Q1</p></div><div><p>CUBE에 지원한 동기와 함께 자신이 CUBE에 필요한 인재라는 것을 어필하시오. [400자 이내]</p></div></div>
+                    <div><div><p>Q2</p></div><div><p>지원자가 현재 이 지원서를 작성하는 이유는 1차 지원에서 아쉬운 결과를 얻었기 때문일 것입니다. 본인이 1차 지원에서 탈락한 이유는 무엇이라고 생각하며, 이를 보완하기 위해 본인이 한 노력들을 서술하시오. [400자 이내]</p></div></div>
                     <div><div><p>Q3</p></div><div><p>대규모 감염병으로 인해 지구에 당신을 포함한 소규모 공동체만이 남게 되었다. 이 무렵, 세포 분열의 한계를 결정하는 '텔로미어'의 길이를 무한히 연장하는 주사가 발명되었다. 주사를 맞으면 늙지 않고, 본 공동체 구성원은 지구가 멸망할 때까지 유지되며, 새로운 생명체를 낳을 수 없는 생식 불능 상태가 된다. 주사를 맞지 않으면 자연 법칙대로 늙고 죽지만, 당신의 유전적 형질을 다음 세대에 전달할 수 있다. 당신은 이 공동체의 수장이며, 당신은 공동체 전원이 이 주사를 맞을지 여부를 선택해야 한다. 당신은 어떤 선택을 내릴 것인지, 그 선택이 사회적으로 어떤 영향을 미칠지 구체적으로 서술하시오. (단, 공동체의 남녀 비율은 같으며 일부만 주사를 맞는 것은 불가능하다.) [500자 이내]</p></div></div>
-                    <div><div><p>Q4</p></div><div><p>모 자사고에 입학한 A는 B의 친한 친구이다. 동아리 부원 모집 기간에 A는 많은 시간을 투자해 생명과학 동아리 X의 지원서를 작성했다. 하지만 B는 공부 시간에 방해가 된다는 이유로 생성형 인공지능을 이용해 지원서를 작성했다. A는 X 동아리에 불합격하였고, B는 합격했다. A는 이 사실을 동아리 부원 모집 마감 직전에 알게 되었다. A가 B를 신고하면 B의 동아리 합격이 취소되고, A가 X 동아리에 합격하게 된다. 또한 B는 A의 신고 사실을 알 수 있다. 당신이 A의 입장이라면, 어떻게 행동할 것인지 구체적으로 서술하시오. (단, 모 자사고는 동아리 지원서 작성에 생성형 인공지능을 사용하는 것을 원칙적으로 금지한다.) [300자 이내]</p></div></div>
+                    <div><div><p>Q4</p></div><div><p>2025 움직임의 CUBE 홍보자료에서 자신과 가장 성향이 비슷할 것 같은 부원을 고르고 이유를 작성하시오. (부담갖지 말고 편하게 작성해주시면 됩니다.) [300자 이내]</p></div></div>
                 </div>
                 <div class="questionfile"></div>
                 <div class="clubselfinfo"><div><p>면접 X</p></div><div><p>공개연습 X</p></div></div>
@@ -2589,6 +2587,16 @@
                 orderBy("createdAt", "asc")
             );
 
+            function escapeHTML(str){
+                if(str === '<span style="color:#ff6b6b">(답변 대기 중)</span>') return str;
+                return str
+              .replace(/&/g,"&amp;")
+              .replace(/</g,"&lt;")
+              .replace(/>/g,"&gt;")
+              .replace(/"/g,"&quot;")
+              .replace(/'/g,"&#039;");
+            }
+
             onSnapshot(q, (snapshot) => {
                 const QnAList = document.getElementById('QnAList');
                 QnAList.innerHTML=""
@@ -2603,10 +2611,10 @@
                     const Item = document.createElement('div');
                     Item.className = "QnA-Item";
 
-                    let answerText = data.answer ? `A: ${data.answer}` : '<span style="color:#ff6b6b">(답변 대기 중)</span>';
+                    let answerText = data.answer ? `A: ${escapeHTML(data.answer)}` : '<span style="color:#ff6b6b">(답변 대기 중)</span>';
                     let html = `
-                        <div class="Question">Q: ${data.content}</div>
-                        <div class="Answer">${answerText}</div>
+                        <div class="Question">Q: ${escapeHTML(data.content)}</div>
+                        <div class="Answer">${escapeHTML(answerText)}</div>
                     `;
 
                     if (hasPermission) {
@@ -2651,3 +2659,58 @@
     </script>  
 </body>
 </html>
+<!--
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Rickroll</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .video-wrapper {
+      width: 100vw;
+      height: 100vh;
+    }
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .close-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 999;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+  <button class="close-btn" onclick="window.close()">✕</button>
+  <div class="video-wrapper">
+    <iframe
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0&modestbranding=1"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</body>
+</html>
+-->
